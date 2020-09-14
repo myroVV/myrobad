@@ -23,4 +23,4 @@ async def on_message(message):
 
 
 
-client.run(os.environ['DISCORD_TOKEN'])9
+client.run(os.environ['DISCORD_TOKEN'])
