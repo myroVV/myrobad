@@ -18,10 +18,4 @@ async def on_ready():
     print('Bot is ready.')
 
 
-@client.event
-async def on_message(message):
-    if message.content.lower().strip() == 'no one asked'
-    await message.content.send('I care')
-
-
 client.run(os.environ['DISCORD_TOKEN'])
