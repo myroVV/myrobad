@@ -15,7 +15,7 @@ async def on_ready():
 async def on_message(message):
     if message.channel.id == 698639022125219903:
         await message.add_reaction("😱")
-        await message.add_reaction("🤔")
+
 
 
 
