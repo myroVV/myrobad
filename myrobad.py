@@ -18,9 +18,9 @@ async def on_ready():
 @bot.event
 async def on_message(message):
     if(message.channel.id == "698639022125219903"):
-        await bot.add_reaction(message, ":thinking:754978927910453249")
+        await bot.add_reaction(message, ":pog:743140919968006318")
 
 
 
 
-client.run(os.environ['DISCORD_TOKEN'])
+client.run(os.environ['DISCORD_TOKEN'])9
