@@ -16,7 +16,7 @@ async def on_ready():
 @bot.event
 async def on_message(message):
     if(message.channel.id == "698639022125219903"):
-        await bot.add_reaction(message, ":thinking_face:")
+        await bot.add_reaction(message, ":thinking:754978927910453249")
 
 
 
