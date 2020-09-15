@@ -97,6 +97,8 @@ bot.colors = {
 bot.color_list = [c for c in bot.colors.values()]
 
 
+
+
     bot.mongo = motor.motor_asyncio.AsyncIOMotorClient(str(bot.connection_url))
     bot.db = bot.mongo["menudocs"]
     bot.config = Document(bot.db, "config")
