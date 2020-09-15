@@ -6,7 +6,7 @@ from discord.ext.commands import Bot
 # Third party libraries
 import discord
 from pathlib import Path
-import asyncio
+import motor
 from discord.ext import commands
 
 client = commands.Bot(command_prefix='#')
