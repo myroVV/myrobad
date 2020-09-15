@@ -6,7 +6,7 @@ from discord.ext import commands
 @bot.event
 async def on_ready():
     await client.change_presence(status=discord.Status.dnd, activity=discord.Game('myro > all'))
-    print ('Bot is online')
+    print ('Online')
 
 
 @client.event
