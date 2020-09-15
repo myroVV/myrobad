@@ -4,8 +4,6 @@ import logging
 
 # Third party libraries
 import discord
-from pathlib import Path
-import motor.motor_asyncio
 from discord.ext import commands
 
 
