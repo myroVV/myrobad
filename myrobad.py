@@ -101,7 +101,7 @@ bot.color_list = [c for c in bot.colors.values()]
 async def on_ready():
     # On ready, print some details to standard out
     print(
-        f"-----\nLogged in as: {bot.user.name} : {bot.user.id}\n-----\nPrefix: %\n-----"
+        f"-----\nLogged in as: {bot.user.name} : {bot.user.id}\n-----\nMy current Prefix is: %\n-----"
     )
     await bot.change_presence(
         activity=discord.Game(
