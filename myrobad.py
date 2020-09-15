@@ -14,9 +14,6 @@ async def on_message(message):
     if message.channel.id == 698639022125219903:
         await message.channel.send("no one asked")
 
-
-
-
 @client.event
 async def on_message(message):
     if message.author.id == 701974976911245382:
