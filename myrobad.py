@@ -6,7 +6,7 @@ from discord.ext.commands import Bot
 # Third party libraries
 import discord
 from pathlib import Path
-import motor.motor_asyncio
+import asyncio
 from discord.ext import commands
 
 client = commands.Bot(command_prefix='#')
@@ -76,7 +76,7 @@ bot.color_list = [c for c in bot.colors.values()]
 async def on_ready():
     # On ready, print some details to standard out
     print(
-        f"-----\nLogged in as: {bot.user.name} : {bot.user.id}\n-----\nMy current Prefix is: %\n-----"
+        f"-----\nLogged in as: {bot.user.name} : {bot.user.id}\n-----\nPrefix is: %\n-----"
     )
     await bot.change_presence(
         activity=discord.Game(
