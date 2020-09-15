@@ -32,7 +32,6 @@ async def on_message(message):
         await message.add_reaction("🤑")
 
 
-
 @client.event
 async def on_message(message):
     if message.channel.id == 738971995068170240:
@@ -53,26 +52,6 @@ async def on_message(message):
         await message.add_reaction("☠️")
         await message.add_reaction("🤑")
 
-
-@client.event
-async def on_message(message):
-    if message.channel.id == 728810273653260338:
-        await message.add_reaction("😀")
-        await message.add_reaction("😄")
-        await message.add_reaction("😁")
-        await message.add_reaction("😆")
-        await message.add_reaction("😌")
-        await message.add_reaction("🤓")
-        await message.add_reaction("😥")
-        await message.add_reaction("👺")
-        await message.add_reaction("🤡")
-        await message.add_reaction("😿")
-        await message.add_reaction("🤢")
-        await message.add_reaction("🤖")
-        await message.add_reaction("👾")
-        await message.add_reaction("😎")
-        await message.add_reaction("☠️")
-        await message.add_reaction("🤑")
 
 
 
