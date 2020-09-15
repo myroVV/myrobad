@@ -5,11 +5,8 @@ import logging
 # Third party libraries
 import discord
 from pathlib import Path
-import asyncio
+import motor.motor_asyncio
 from discord.ext import commands
-
-
-
 
 
 cwd = Path(__file__).parents[0]
