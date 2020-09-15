@@ -12,11 +12,19 @@ async def on_ready():
 @client.event
 async def on_message(message):
     if message.channel.id == 698639022125219903:
-        await message.channel.send("")
+        await message.channel.send("no one asked")
+
+@client.event
+async def on_message(message):
+    # we do not want the bot to reply to itself
+    if message.author == client.user:
+        return
+    if message.author.bot: return
+    if message.content.startswith('no one asked'):
+        msg = 'no one asked'.format(message)
+        await client.send_message(message.channel, msg)
 
 
-
-
-        
+    
 
 client.run(os.environ['DISCORD_TOKEN'])
