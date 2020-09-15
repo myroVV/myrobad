@@ -55,10 +55,24 @@ async def on_message(message):
 
 
 @client.event
-async def on_message():
+async def on_message(message):
     if message.channel.id == 728810273653260338:
+        await message.add_reaction("😀")
+        await message.add_reaction("😄")
+        await message.add_reaction("😁")
+        await message.add_reaction("😆")
+        await message.add_reaction("😌")
+        await message.add_reaction("🤓")
+        await message.add_reaction("😥")
+        await message.add_reaction("👺")
         await message.add_reaction("🤡")
-
+        await message.add_reaction("😿")
+        await message.add_reaction("🤢")
+        await message.add_reaction("🤖")
+        await message.add_reaction("👾")
+        await message.add_reaction("😎")
+        await message.add_reaction("☠️")
+        await message.add_reaction("🤑")
 
 
 
