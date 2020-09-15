@@ -15,13 +15,13 @@ async def on_message(message):
         await message.channel.send("no one asked")
 
 
-@bot.event
+
+
+@client.event
 async def on_message(message):
-    #Ignore messages sent by yourself
-    if message.author.id == bot.user.id:
+    if message.author.id == 701974976911245382:
         return
 
 
-    
 
 client.run(os.environ['DISCORD_TOKEN'])
