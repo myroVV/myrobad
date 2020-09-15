@@ -2,8 +2,10 @@ import discord
 import os
 from discord.ext import commands
 
+client = discord.Client()
 
-@bot.event
+
+@client.event
 async def on_ready():
     await client.change_presence(status=discord.Status.dnd, activity=discord.Game('myro > all'))
     print ('Online')
