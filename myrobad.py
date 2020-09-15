@@ -23,11 +23,6 @@ async def on_message(message):
         await message.add_reaction("😱")
 
 
-
-
-
-client.run(os.environ['DISCORD_TOKEN'])
-
 # Standard libraries
 import os
 import logging
@@ -151,4 +146,4 @@ if __name__ == "__main__":
         if file.endswith(".py") and not file.startswith("_"):
             bot.load_extension(f"cogs.{file[:-3]}")
 
-    bot.run(bot.config_token)
+   client.run(os.environ['DISCORD_TOKEN'])
