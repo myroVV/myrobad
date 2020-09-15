@@ -11,31 +11,6 @@ from discord.ext import commands
 
 client = commands.Bot(command_prefix='#')
 
-@client.event
-async def on_ready():
-    await client.change_presence(status=discord.Status.dnd, activity=discord.Game('myro > all'))
-    print('myrosaurus is ready.')
-
-
-@client.event
-async def on_message(message):
-    if message.channel.id == 698639022125219903:
-        await message.add_reaction("😱")
-
-
-# Standard libraries
-import os
-import logging
-
-# Third party libraries
-import discord
-from pathlib import Path
-import motor.motor_asyncio
-from discord.ext import commands
-
-# Local code
-import utils.json_loader
-from utils.mongo import Document
 
 cwd = Path(__file__).parents[0]
 cwd = str(cwd)
