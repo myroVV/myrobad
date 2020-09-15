@@ -12,8 +12,7 @@ async def on_ready():
 @client.event
 async def on_message(message):
     if message.channel.id == 698639022125219903:
-        await message.channel.send("no one asked")
-
+        await message.channel.send("")
 
 
 
