@@ -33,12 +33,8 @@ async def get_prefix(bot, message):
         return commands.when_mentioned_or("%")(bot, message)
 
 
-# Defining a few things
-secret_file = utils.json_loader.read_json("secrets")
-bot = commands.Bot(
-    command_prefix="%", case_insensitive=True, owner_id=213978971191115776
 )  # change command_prefix='-' to command_prefix=get_prefix for custom prefixes
-bot.config_token = secret_file["DISCORD_TOKEN"]
+bot.config_token = ["DISCORD_TOKEN"]
 bot.connection_url = secret_file["mongo"]
 logging.basicConfig(level=logging.INFO)
 
