@@ -97,7 +97,17 @@ bot.colors = {
 bot.color_list = [c for c in bot.colors.values()]
 
 
-
+@bot.event
+async def on_ready():
+    # On ready, print some details to standard out
+    print(
+        f"-----\nLogged in as: {bot.user.name} : {bot.user.id}\n-----\nPrefix: %\n-----"
+    )
+    await bot.change_presence(
+        activity=discord.Game(
+            name="Myro > all"
+        )
+    )  # This changes the bots 'activity'
 
     bot.mongo = motor.motor_asyncio.AsyncIOMotorClient(str(bot.connection_url))
     bot.db = bot.mongo["menudocs"]
