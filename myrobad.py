@@ -10,7 +10,7 @@ async def on_ready():
     print ('Online')
 
 @client.event
-async def on_message(on_message):
+async def on_message(message):
     if message.channel.id == 698639022125219903:
         await message.add_reaction("😀")
         await message.add_reaction("😄")
@@ -32,7 +32,7 @@ async def on_message(on_message):
 
 
 @client.event
-async def on_message(on_message):
+async def on_message(message):
     if message.channel.id == 738971995068170240:
         await message.add_reaction("😄")
         await message.add_reaction("😁")
