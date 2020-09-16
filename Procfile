@@ -1,8 +1,1 @@
-worker: python myrobad.py
-worker: python _sub-commands.py
-worker: python channels.py
-worker: python commands.py
-worker: python config.py
-worker: python events.py
-worker: python misc.py
-worker: python moderation.py
+worker: python myrobad.py, _sub-commands.py, channels.py, commands.py, config.py, events.py, misc.py, moderation.py
