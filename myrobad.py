@@ -22,23 +22,23 @@ print(f"{cwd}\n-----")
 async def get_prefix(bot, message):
     # If dm's
     if not message.guild:
-        return commands.when_mentioned_or("!")(bot, message)
+        return commands.when_mentioned_or("%")(bot, message)
 
     try:
         data = await bot.config.find(message.guild.id)
 
         # Make sure we have a useable prefix
         if not data or "prefix" not in data:
-            return commands.when_mentioned_or("!")(bot, message)
+            return commands.when_mentioned_or("%")(bot, message)
         return commands.when_mentioned_or(data["prefix"])(bot, message)
     except:
-        return commands.when_mentioned_or("!")(bot, message)
+        return commands.when_mentioned_or("%")(bot, message)
 
 
 # Defining a few things
 secret_file = utils.json_loader.read_json('secrets')
 bot = commands.Bot(
-    command_prefix=get_prefix, case_insensitive=True, owner_id=271612318947868673
+    command_prefix=get_prefix, case_insensitive=True, owner_id=213978971191115776
 )
 bot.config_token = secret_file["token"]
 bot.connection_url = secret_file["mongo"]
@@ -77,11 +77,11 @@ bot.color_list = [c for c in bot.colors.values()]
 async def on_ready():
     # On ready, print some details to standard out
     print(
-        f"-----\nLogged in as: {bot.user.name} : {bot.user.id}\n-----\nMy current prefix is: -\n-----"
+        f"-----\nLogged in as: {bot.user.name} : {bot.user.id}\n-----\nMy current prefix is: %\n-----"
     )
     await bot.change_presence(
         activity=discord.Game(
-            name=f"Hi, my names {bot.user.name}.\nUse - to interact with me!"
+            name=f"Hi, i'm {bot.user.name}.\nUse % to interact with me!"
         )
     )  # This changes the bots 'activity'
 
@@ -110,7 +110,7 @@ async def on_message(message):
     ):
         data = await bot.config.get_by_id(message.guild.id)
         if not data or "prefix" not in data:
-            prefix = "!"
+            prefix = "%"
         else:
             prefix = data["prefix"]
         await message.channel.send(f"My prefix here is `{prefix}`", delete_after=15)
@@ -125,4 +125,4 @@ if __name__ == "__main__":
         if file.endswith(".py") and not file.startswith("_"):
             bot.load_extension(f"cogs.{file[:-3]}")
 
-    bot.run(bot.config_token)
+client.run(os.environ['DISCORD_TOKEN'])
