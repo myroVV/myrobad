@@ -86,8 +86,8 @@ async def on_ready():
     )  # This changes the bots 'activity'
 
     bot.mongo = motor.motor_asyncio.AsyncIOMotorClient(str(bot.connection_url))
-    bot.db = bot.mongo["menudocs"]
-    bot.config = Document(bot.db, "config")
+    bot.db = bot.mongo["bot_config"]
+    bot.config = Document(bot.db, "config.json")
     print("Initialized Database\n-----")
     for document in await bot.config.get_all():
         print(document)
