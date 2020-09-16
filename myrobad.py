@@ -1,8 +1,11 @@
 import discord
 import os
 from discord.ext import commands
+import asyncio
 
 client = discord.Client()
+
+bot = commands.Bot(command_prefix = '%')
 
 @client.event
 async def on_ready():
@@ -15,10 +18,12 @@ async def on_message(message):
     if message.author.id == 701974976911245382:
         return
 
-@client.event
-async def on_message(message):
-    if message.channel.content == 'no one asked':
-        await message.channel.send('I asked')
-
+@bot.command()
+async def echo(*args):
+    output = " "
+    for word in args:
+        output += word
+        #output += " "
+    await bot.say(output)
 
 client.run(os.environ['DISCORD_TOKEN'])
