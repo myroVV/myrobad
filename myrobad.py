@@ -12,18 +12,19 @@ async def on_ready():
     await client.change_presence(status=discord.Status.dnd, activity=discord.Game('myro > all'))
     print ('Online')
 
-
 @client.event
 async def on_message(message):
     if message.author.id == 701974976911245382:
         return
 
-@bot.command()
-async def echo(*args):
-    output = " "
-    for word in args:
-        output += word
-        output += " "
-    await bot.say(output)
+@client.event
+async def on_message(message):
+    if message.channel.id == 698639022125219903:
+        await message.add_reaction('🔴')
+        await message.add_reaction('🟠')
+        await message.add_reaction('🟡')
+        await message.add_reaction('🟢')
+        await message.add_reaction('🔵')
+        await message.add_reaction('🟣')
 
 client.run(os.environ['DISCORD_TOKEN'])
