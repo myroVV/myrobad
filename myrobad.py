@@ -23,7 +23,7 @@ async def echo(*args):
     output = " "
     for word in args:
         output += word
-        #output += " "
+        output += " "
     await bot.say(output)
 
 client.run(os.environ['DISCORD_TOKEN'])
