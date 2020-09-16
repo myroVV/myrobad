@@ -15,5 +15,10 @@ async def on_message(message):
     if message.author.id == 701974976911245382:
         return
 
+@client.event
+async def on_message(message):
+    if message.channel.content == 'no one asked'
+        await message.channel.send('I asked')
+
 
 client.run(os.environ['DISCORD_TOKEN'])
