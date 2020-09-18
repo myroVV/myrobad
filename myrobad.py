@@ -12,11 +12,6 @@ async def on_ready():
 
 @client.event
 async def on_message(message):
-    if message.channel.id == 756327903679217695:
-        await message.add_reaction("😱")
-
-@client.event
-async def on_message(message):
     if message.content.startswith('{bot.user.mention}'):
         await bot.send_message(message.channel, f"Don't tag me, please go fuck yourself.")
 
