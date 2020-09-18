@@ -12,7 +12,6 @@ async def on_ready():
 
 @client.event
 async def on_message(message):
-    if message.content.startswith('{bot.user.mention}'):
-        await bot.send_message(message.channel, f"Don't tag me, please go fuck yourself.")
-
+    if bot.user.mentioned_in(message) and 'prefix' in message.content:
+        await bot.send_message(message.channel, f'I do not have a prefix, stop tagging me you stupid bitch <o/')
 client.run(os.environ['DISCORD_TOKEN'])
