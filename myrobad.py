@@ -12,8 +12,9 @@ async def on_ready():
 
 @client.event
 async def on_message(message):
-    if bot.user.mentioned_in(message) and 'prefix' in message.content:
-        await bot.send_message(message.channel, f'I do not have a prefix, stop tagging me you stupid bitch <o/')
+
+     if "no one asked" in message.content:
+           await Bot.send_message(message.channel, 'I asked wdym u mean')
 
 
 client.run(os.environ['DISCORD_TOKEN'])
