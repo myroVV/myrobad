@@ -14,4 +14,6 @@ async def on_ready():
 async def on_message(message):
     if bot.user.mentioned_in(message) and 'prefix' in message.content:
         await bot.send_message(message.channel, f'I do not have a prefix, stop tagging me you stupid bitch <o/')
+
+
 client.run(os.environ['DISCORD_TOKEN'])
