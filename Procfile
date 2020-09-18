@@ -1,1 +1,1 @@
-worker: python myrosaurus.py
+worker: python myrobad.py
