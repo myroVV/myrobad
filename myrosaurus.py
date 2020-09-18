@@ -10,7 +10,6 @@ async def on_ready():
     await client.change_presence(status=discord.Status.idle, activity=discord.Game('myro > all'))
     print('Bot is online')
 
-
 @client.event
 async def on_message():
     if message.channel.id == 756327903679217695:
