@@ -2,11 +2,6 @@
 import discord
 from discord.ext import commands
 import os
-import pyautogui, time
-
-f = open("despise, 'r'")
-    pyautogui.typewrite(word)
-    pyautogui.press("enter")
 
 client = discord.Client()
 
