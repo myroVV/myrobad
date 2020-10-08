@@ -7,14 +7,12 @@ client = discord.Client()
 
 @client.event
 async def on_ready():
-    await client.change_presence(status=discord.Status.idle, activity=discord.Game('999'))
+    await client.change_presence(status=discord.Status.idle, activity=discord.Game('𝟗 𝟗 𝟗'))
     print('Bot is online')
 
 @client.event
 async def on_message(message):
 
-     if "no one asked" in message.content:
-           await Bot.send_message(message.channel, 'I asked wdym u mean')
 
            
 
