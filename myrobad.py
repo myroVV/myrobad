@@ -7,7 +7,9 @@ client = discord.Client()
 
 @client.event
 async def on_ready():
-    await client.change_presence(status=discord.Status.idle, activity=discord.Game('𝟗 𝟗 𝟗'))
+    await bot.change_presence(activity=discord.Activity(type=discord.ActivityType.listening, name="WRLD On Drugs"))
     print('Bot is online')
+
+
 
 client.run(os.environ['DISCORD_TOKEN'])
