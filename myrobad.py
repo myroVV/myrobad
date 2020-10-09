@@ -5,7 +5,7 @@ client = discord.Client()
 
 @client.event
 async def on_ready():
-    await client.change_presence(activity=discord.Activity(type=discord.ActivityType.listening, name="Whole Lotta Red"))
+    await bot.change_presence(activity=discord.Streaming(name="My Stream", url=https://www.youtube.com/channel/UCibHDZGIxI7taVblvdeOB4w?view_as=subscriberl))
     print('Bot is online')
 
 
