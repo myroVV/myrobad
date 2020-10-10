@@ -66,43 +66,7 @@ async def avatar(ctx, *, member: discord.Member = None):
     await ctx.send(embed=embed)
 
 
-@client.command()
-@commands.has_permissions(administrator=True) #this line checks if the user who uses the kick command has permission to kick a member from the server
-async def kick(ctx, member : discord.Member, *, reason=None):  #here as usual we use the ctx and member: discord.Member is used for mentioning some user and storing it
-    await member.kick(reason=reason)  #now , this statement performs the actions ie. kicking the user from the server 
-    await ctx.send(f"{member.mention} **has been kicked for** ``{reason}``") #and at last here we display the person who was kicked and the reason he was kicked for
 
-
-@client.command()
-@commands.has_permissions(administrator=True)
-async def ban(ctx, member:discord.Member, *, reason=None):
-    await member.ban(reason=reason)
-    await ctx.send(f"{member.mention} **has been banned for** ``{reason}``")
-            
-
-
-@ban.error
-async def ban_error(ctx,error):
-    if isinstance(error, commands.MissingPermissions):
-        await ctx.send(f'{ctx.author.mention} ``You do not have the permission to ban someone!``')
-
-    if isinstance(error, commands.MissingRequiredArgument):
-        await ctx.send(f"{ctx.author.mention} ``Please specify a user!``")
-
-    else:
-        raise(error)
-
-
-@kick.error
-async def kick_error(ctx,error):
-    if isinstance(error, commands.MissingPermissions):
-        await ctx.send(f'{ctx.author.mention} ``You do not have the permission to kick someone!``')
-
-    if isinstance(error, commands.MissingRequiredArgument):
-        await ctx.send(f"{ctx.author.mention} ``Please specify a user!``")
-
-    else:
-        raise(error)
 
 
 
