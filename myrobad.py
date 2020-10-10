@@ -96,7 +96,7 @@ async def members(ctx):
 @client.command(pass_context=True)
 async def hack(ctx, member:discord.Member = None):
     if not member:
-        await ctx.send("Please specify a member")
+        await ctx.send("``Please specify a user!``")
         return
 
     passwords=['imnothackedlmao','sendnoodles63','ilovenoodles','icantcode','christianmicraft','server','icantspell','hackedlmao','WOWTONIGHT','69'] 
@@ -130,6 +130,39 @@ async def hack(ctx, member:discord.Member = None):
     embed.set_footer(text="Sending Insta 2's to your house 😈.")
     await m.edit(embed=embed)
     time.sleep(1)
+
+
+
+
+
+@bot.command(pass_context=True)
+async def dicksize(ctx, member: discord.Member):
+    sizes = ['8D',
+                '8=D',
+                '8==D',
+                '8===D',
+                '8====D',  
+                '8=====D',
+                '8======D', 
+                '8=======D',
+                '8========D',
+                '8=========D',
+                '8==========D',
+                '8===========D',
+                '8============D',
+                '8=============D',
+                '8==============D',
+                '8===============D',
+                '8================D']
+    await ctx.send(f"{member.mention}'s pp size is': {random.choice(sizes)}")
+
+@dicksize.error
+async def dicksize_error(ctx, error):
+            if isinstance(error, commands.MissingRequiredArgument):
+                userembed=discord.Embed(title="__**Command help!**__", color=0xffffff)
+                userembed.add_field(name="Command --> ``dicksize <user>``", value="Info --> `says how big of a dick a member has.`", inline=False)
+                await ctx.send(embed=userembed)
+                await ctx.send("``Please specify a user!``")
 
 
 
