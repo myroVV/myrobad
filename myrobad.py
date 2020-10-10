@@ -16,6 +16,7 @@ from random import choice
 
 
 
+
 client = discord.Client()
 
 client = commands.Bot(command_prefix=".")
