@@ -212,12 +212,6 @@ async def slot(self, ctx):
         else:
             await ctx.send(f"{slotmachine} aww you lost! 😢")
 
-@slot.error
-async def slots_erroe(ctx, error):
-            if isinstance(error, commands.MissingRequiredArgument):
-                userembed=discord.Embed(title="__**SLOT MACHINE 6900**__", color=0xffffff)
-                userembed.add_field(name="  ``Usage - .slots``", value="*you don't really get anything from it but yeah lol*", inline=False)
-                await ctx.send(embed=userembed)
 
 
 
