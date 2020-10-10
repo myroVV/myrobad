@@ -2,7 +2,6 @@ import discord
 import os
 import random
 import asyncio
-import cat
 import os
 import hashlib
 
