@@ -173,7 +173,11 @@ async def dicksize_error(ctx, error):
 
 
 
-   @commands.command(aliases=['Meme', "M"])
+
+
+
+
+ @client.command(aliases=['Meme', "M"])
     async def meme(self, msg:commands.Context):
         fetch:discord.Message = await msg.channel.send("fetching...")
         req = requests.request("GET",'https://apis.duncte123.me/meme')
