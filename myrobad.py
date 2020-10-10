@@ -226,10 +226,12 @@ async def slot(self, ctx):
 @client.command(aliases=['8ball'])
 async def _8ball(ctx, *, question):
     responces = ['Yes',
-                 'No',
+                 'Yessir',
+                 'Squirt first 😳'
+                 'Naw',
                  'Maybe',
-                 'Not any time soon',
-                 'Gray Area']
+                 'Green',
+                 'Not at all bro']
     await ctx.send(f'``Question: {question}\nAnswer``: {random.choice(responces)}')
 
 
