@@ -1,5 +1,7 @@
 import discord
 from discord.ext import commands
+import asyncio
+from aiohttp import ClientSession
 
 class Example(commands.Cog):
 #need
@@ -10,9 +12,17 @@ class Example(commands.Cog):
     async def on_ready(self):
         print('Bot is online.')
 
-    @commands.command()
-    async def ping(self, ctx):
-        await ctx.send('Pong!')
+@commands.command()
+async def fact(ctx, self):
+        url = f'https://uselessfacts.jsph.pl/random.json?language=en'
+        async with ClientSession() as session:
+            async with session.get(url) as response:
+                r = await response.json()
+                fact = r['text']
+                embed = discord.Embed(title=f'Random Fact', colour=ctx.author.colour, timestamp=ctx.message.created_at)
+
+                embed.add_field(name='***Fun Fact***', value=fact, inline=False)
+                await ctx.send(embed=embed)
 
 
 #NEED
