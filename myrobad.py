@@ -135,8 +135,8 @@ async def hack(ctx, member:discord.Member = None):
 
 
 
-@bot.command(pass_context=True)
-async def dicksize(ctx, member: discord.Member):
+@client.command(pass_context=True)
+async def pp(ctx, member: discord.Member):
     sizes = ['8D',
                 '8=D',
                 '8==D',
@@ -156,7 +156,7 @@ async def dicksize(ctx, member: discord.Member):
                 '8================D']
     await ctx.send(f"{member.mention}'s pp size is': {random.choice(sizes)}")
 
-@dicksize.error
+@pp.error
 async def dicksize_error(ctx, error):
             if isinstance(error, commands.MissingRequiredArgument):
                 userembed=discord.Embed(title="__**Command help!**__", color=0xffffff)
