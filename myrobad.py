@@ -5,7 +5,7 @@ from time import sleep
 import time
 from discord import Spotify
 from discord.ext import commands
-import pendulum
+
 
 
 client = discord.Client()
@@ -182,38 +182,19 @@ async def userinfo (ctx):
     for role in ctx.author.roles:
         list += f'<@&{role.id}> '
 
-    embed = discord.Embed(title=f'{ctx.author.name}', description=f"This shows the User Info of {ctx.author.name}", colour=ctx.author.colour)
+    embed = discord.Embed(title=f'{ctx.author.name}', description=f"Userinfo of {ctx.author.name}", colour=ctx.author.colour)
     embed.set_thumbnail(url=ctx.author.avatar_url)
-    embed.add_field(name='Discord Tag:', value=ctx.author, inline=True)
+    embed.add_field(name='Tag#:', value=ctx.author, inline=True)
     embed.add_field(name='Nick:', value=ctx.author.nick, inline=True)
     embed.add_field(name='Status:', value=ctx.author.status,inline=True )
     embed.add_field(name='ID:', value=ctx.author.id, inline=False)
-    embed.add_field(name='Created On:', value=ctx.author.created_at, inline=False)
+    embed.add_field(name='Created:', value=ctx.author.created_at, inline=False)
     embed.add_field(name='Joined:', value=ctx.author.joined_at, inline=False)
     embed.add_field(name='Roles:', value=list)
 
     await ctx.send(embed=embed)
 
 
-
-
-
-
-
-@client.command()
-async def np(self, ctx, user: discord.Member=None):
-      if user is None:
-          user=ctx.author
-      for activity in user.activities:
-          if isinstance(activity, Spotify):
-              embed=discord.Embed(title=activity.title, description=activity.artist, color=activity.color)
-              embed.set_thumbnail(url=activity.album_cover_url)
-              embed.add_field(name=activity.album, value=(f"Song Length: {pendulum.duration(seconds=activity.duration.total_seconds()).in_words(locale='en')}"), inline=True)
-              embed.set_footer(text="myrosaurus | Spotify")
-              await ctx.send (embed=embed)
-              break
-      else:
-          await ctx.send(f"{user.mention} ``Is not listening to music atm``")
 
 
 
