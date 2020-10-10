@@ -1,6 +1,8 @@
 import discord
 import os
 import random
+from time import sleep
+import time
 from discord.ext import commands
 
 
@@ -128,5 +130,9 @@ async def hack(ctx, member:discord.Member = None):
     embed.set_footer(text="this is a joke plses dont worry.")
     await m.edit(embed=embed)
     time.sleep(1)
+
+
+
+
 
 client.run(os.environ['DISCORD_TOKEN'])
