@@ -50,4 +50,16 @@ async def ban(ctx, member:discord.Member, *, reason=None):
             
 
 
+@ban.error
+async def ban_error(ctx,error):
+    if isinstance(error, commands.MissingPermissions):
+        await ctx.send(f'{ctx.author.mention} ``You do not have the permission to ban someone!``')
+
+    if isinstance(error, commands.MissingRequiredArgument):
+        await ctx.send(f"{ctx.author.mention} ``Please specify a user!``")
+
+    else:
+        raise(error)
+
+
 client.run(os.environ['DISCORD_TOKEN'])
