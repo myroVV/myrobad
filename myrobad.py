@@ -12,6 +12,9 @@ from discord.ext import commands, tasks
 from discord.voice_client import VoiceClient
 from random import choice
 from datetime import datetime
+from discord.ext.commands import Cog, BucketType
+from discord.ext.commands import BadArgument
+from discord.ext.commands import command, cooldown
 
 
 client = discord.Client()
@@ -193,6 +196,10 @@ async def pp(ctx, member: discord.Member):
                 '8===============================D 31 inches 😵😵',
                 '8========================================D 40 inches!??!?!?!?! 😵😵']
     await ctx.send(f"{member.mention} = ``{random.choice(sizes)}``")
+    @commands.cooldown(1, 4, commands.BucketType.user)
+
+
+
 
 @pp.error
 async def dicksize_error(ctx, error):
