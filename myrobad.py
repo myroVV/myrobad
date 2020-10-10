@@ -202,8 +202,12 @@ async def userinfo (ctx):
 
 
 
+
+
+
+
 @client.command()
-    async def np(self, ctx, user: discord.Member=None):
+async def np(self, ctx, user: discord.Member=None):
       if user is None:
           user=ctx.author
       for activity in user.activities:
@@ -215,7 +219,10 @@ async def userinfo (ctx):
               await ctx.send (embed=embed)
               break
       else:
-          await ctx.send(f"{user.mention} ``Is not listening to music atm.``")
+          await ctx.send(f"{user.mention} ``Is not listening to music atm``")
+
+
+
 
 
 
