@@ -83,4 +83,13 @@ async def clear_error(ctx, error):
 
 
 
+@client.command()
+async def members(ctx):
+    await ctx.send("``Membercount : {0.member_count}``".format(ctx.message.guild))
+
+
+
+
+
+
 client.run(os.environ['DISCORD_TOKEN'])
