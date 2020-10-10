@@ -238,8 +238,8 @@ async def _8ball(ctx, *, question):
 
 
 
- @client.command()
-    async def fact(self):
+@client.command()
+async def fact(self):
         url = f'https://uselessfacts.jsph.pl/random.json?language=en'
         async with ClientSession() as session:
             async with session.get(url) as response:
