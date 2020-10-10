@@ -10,6 +10,10 @@ class Youtube(commands.Cog):
     def __init__(self, client):
         self.client = client
 
+    @commands.Cog.listener()
+    async def on_ready(self):
+        print("Youtube cog loaded\n-----")
+
 youtube_dl.utils.bug_reports_message = lambda: ''
 
 ytdl_format_options = {
