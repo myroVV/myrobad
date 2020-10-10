@@ -275,4 +275,67 @@ async def ping(ctx):
     await ctx.send(f"``Pong! {latency}ms``")
 
 
+
+@client.command(description="Unbans a member")
+@commands.has_permissions(ban_members=True)
+async def unban(ctx, *, member):
+    bannedUsers = await ctx.guild.bans()
+    name, discriminator = member.split("#")
+
+    for ban in bannedUsers:
+        user = ban.user
+
+        if(user.name, user.discriminator) == (name, discriminator):
+            await ctx.guild.unban(user)
+            await ctx.send(f"{user.mention} **has been unbanned.**")
+            return
+
+
+
+
+
+@client.command(description="Gets info about the user")
+async def userinfo(ctx):
+    user = ctx.author
+
+    embed=discord.Embed(title="USER INFO", description=f"Here is the info we retrieved about {user}", colour=user.colour)
+    embed.set_thumbnail(url=user.avatar_url)
+    embed.add_field(name="Name", value=user.name, inline=True)
+    embed.add_field(name="Nickname", value=user.nick, inline=True)
+    embed.add_field(name="ID", value=user.id, inline=True)
+    embed.add_field(name="Status", value=user.status, inline=True)
+    embed.add_field(name="Top Role", value=user.top_role.name, inline=True)
+    await ctx.send(embed=embed)
+
+@client.command(description="The help command.")
+async def help(ctx, commandSent=None):
+    if commandSent != None:
+
+        for command in client.commands:
+            if commandSent.lower() == command.name.lower():
+
+                paramString = ""
+
+                for param in command.clean_params:
+                    paramString += param + ", "
+
+                paramString = paramString[:-2]
+
+                if len(command.clean_params) == 0:
+                    paramString = "None"
+                    
+                embed=discord.Embed(title=f"HELP - {command.name}", description=command.description)
+                embed.add_field(name="parameters", value=paramString)
+                await ctx.message.delete()
+                await ctx.author.send(embed=embed)
+        
+    else:
+        embed=discord.Embed(title="Commands")
+        embed.add_field(name="ping", value="Gets the bot's latency.", inline=True)
+        embed.add_field(name="userinfo", value="Gives info about the user.", inline=True)
+
+        await ctx.message.delete()
+        await ctx.author.send(embed=embed)
+
+
 client.run(os.environ['DISCORD_TOKEN'])
