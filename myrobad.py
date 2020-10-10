@@ -236,20 +236,17 @@ async def _8ball(ctx, *, question):
 
 
 
-
-
-@client.command()
-async def fact(self):
+@commands.command()
+async def fact(ctx, *, self):
         url = f'https://uselessfacts.jsph.pl/random.json?language=en'
         async with ClientSession() as session:
             async with session.get(url) as response:
                 r = await response.json()
                 fact = r['text']
-                embed = discord.Embed(title=f'***Random Fact***', colour=ctx.author.colour, timestamp=ctx.message.created_at)
+                embed = discord.Embed(title=f'Random Fact', colour=ctx.author.colour, timestamp=ctx.message.created_at)
 
-                embed.add_field(name='**Fun Fact**', value=fact, inline=False)
+                embed.add_field(name='***Fun Fact***', value=fact, inline=False)
                 await ctx.send(embed=embed)
-
 
 
 
