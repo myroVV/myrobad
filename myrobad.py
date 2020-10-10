@@ -251,6 +251,17 @@ async def fact(ctx, self):
 
 
 
+
+
+
+@client.command()
+async def boop (ctx, member:discord.User=None):
+    if member == None or member == ctx.message.author:
+        await ctx.channel.send("You cannot boop yourself")
+        return
+    await ctx.channel.send(f"✅ {member} **Has been successfully booped!**")
+
+
       
 
 client.run(os.environ['DISCORD_TOKEN'])
