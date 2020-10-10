@@ -21,26 +21,6 @@ async def coinflip(ctx):
     rancoin = random.choice(choices)
     await ctx.send(rancoin)
 
-@client.command()
-async def kick(ctx, discord.member=None):
-    if not member:
-        await ctx.send("``Please specify a user``")
-        return
-    await member.kick()
-    await ctx.send(f"``{member.mention} has been kicked.``")
-
-
-
-@client.command()
-async def ban(ctx, discord.member=None):
-    if not member:
-        await ctx.send("``Please specify a user``")
-        return
-    await member.ban()
-    await ctx.send(f"``{member.mention} has been banned.``")
-
-
-
 
 
 client.run(os.environ['DISCORD_TOKEN'])
