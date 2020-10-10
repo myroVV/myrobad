@@ -200,8 +200,6 @@ async def userinfo (ctx):
 
 
 
-
-
 @client.command()
 async def np(self, ctx, user: discord.Member=None):
       if user is None:
