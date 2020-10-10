@@ -288,9 +288,9 @@ async def boop (ctx, member:discord.User=None):
 
 
 
-@bot.command(description="Bot's latency.")
+@client.command(description="Bot's latency.")
 async def ping(ctx):
-    latency = round(bot.latency * 1000, 1)
+    latency = round(client.latency * 1000, 1)
     await ctx.send(f"``Pong! {latency}ms``")
 
 
