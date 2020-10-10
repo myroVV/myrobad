@@ -39,7 +39,7 @@ async def avatar(ctx, *, member: discord.Member = None):
 @commands.has_permissions(administrator=True) #this line checks if the user who uses the kick command has permission to kick a member from the server
 async def kick(ctx, member : discord.Member, *, reason=None):  #here as usual we use the ctx and member: discord.Member is used for mentioning some user and storing it
     await member.kick(reason=reason)  #now , this statement performs the actions ie. kicking the user from the server 
-    await ctx.send(f"``{member.mention}`` **has been kicked for** ``{reason}``") #and at last here we display the person who was kicked and the reason he was kicked for
+    await ctx.send(f"``{Member}`` **has been kicked for** ``{reason}``") #and at last here we display the person who was kicked and the reason he was kicked for
 
 
 
