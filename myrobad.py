@@ -15,6 +15,7 @@ from discord.ext import commands
 client = discord.Client()
 
 client = commands.Bot(command_prefix=".")
+client.remove_command("help")
 
 
 @client.command()
@@ -266,6 +267,12 @@ async def boop (ctx, member:discord.User=None):
 
 
     
+
+
+
+
+
+
 
 
 
