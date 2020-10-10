@@ -154,13 +154,13 @@ async def pp(ctx, member: discord.Member):
                 '8==============D',
                 '8===============D',
                 '8================D']
-    await ctx.send(f"{member.mention}'s pp ': {random.choice(sizes)}")
+    await ctx.send(f"{member.mention}'s pp '= {random.choice(sizes)}")
 
 @pp.error
 async def dicksize_error(ctx, error):
             if isinstance(error, commands.MissingRequiredArgument):
-                userembed=discord.Embed(title="__**Command help!**__", color=0xffffff)
-                userembed.add_field(name="Command - ``.pp <user>``", value="`pp calculator`", inline=False)
+                userembed=discord.Embed(title="__**PP CALCULATOR 3900**__", color=0xffffff)
+                userembed.add_field(name=" - ``Usage - .pp <user>``", value="`🍆🍆🍆🍆`", inline=False)
                 await ctx.send(embed=userembed)
 
 
