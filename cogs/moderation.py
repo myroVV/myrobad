@@ -31,10 +31,7 @@ class TimeConverter(commands.Converter):
 class Moderation(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
-        self.mute_task = self.check_current_mutes.start()
 
-    def cog_unload(self):
-        self.mute_task.cancel()
 
     @tasks.loop(minutes=5)
     async def check_current_mutes(self):
