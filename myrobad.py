@@ -42,14 +42,12 @@ async def kick(ctx, member : discord.Member, *, reason=None):  #here as usual we
     await ctx.send(f"{member.mention} **has been kicked for** ``{reason}``") #and at last here we display the person who was kicked and the reason he was kicked for
 
 
-client.command()
+@client.command()
 @commands.has_permissions(administrator=True)
 async def ban(ctx, member:discord.Member, *, reason=None):
     await member.ban(reason=reason)
-    await ctx.send(f"{member.mention} **has been banned for** ``{reason}``")
-
-
-
+    await ctx.send(f"Banned {member.mention} sucessfully for {reason}")
+            
 
 
 client.run(os.environ['DISCORD_TOKEN'])
