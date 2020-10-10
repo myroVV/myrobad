@@ -1,4 +1,5 @@
 import discord
+import youtube_dl
 import os
 import random
 from time import sleep
@@ -10,8 +11,6 @@ from aiohttp import ClientSession
 import aiohttp
 from discord.ext import commands, tasks
 from discord.voice_client import VoiceClient
-import youtube_dl
-
 from random import choice
 
 
