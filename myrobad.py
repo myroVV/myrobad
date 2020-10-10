@@ -160,9 +160,8 @@ async def pp(ctx, member: discord.Member):
 async def dicksize_error(ctx, error):
             if isinstance(error, commands.MissingRequiredArgument):
                 userembed=discord.Embed(title="__**Command help!**__", color=0xffffff)
-                userembed.add_field(name="Command --> ``dicksize <user>``", value="Info --> `says how big of a dick a member has.`", inline=False)
+                userembed.add_field(name="Command - ``.pp <user>``", value="`pp calculator`", inline=False)
                 await ctx.send(embed=userembed)
-                await ctx.send("``Please specify a user!``")
 
 
 
