@@ -220,8 +220,6 @@ async def slot(self, ctx):
 
 
 
-
-
 class Covid(commands.Cog):
     """
     Covid API Commands!
