@@ -59,7 +59,7 @@ async def coinflip(ctx):
 async def clear(ctx, amount=7):
     await ctx.channel.purge(limit=amount)
 
-@client.command()
+@client.command(aliases=['av'])
 async def avatar(ctx, *, member: discord.Member = None):
     member = ctx.author if not member else member
     embed = discord.Embed(title = f"{member.name}'s avatar", color = member.color , timestamp= ctx.message.created_at)
