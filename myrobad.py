@@ -22,5 +22,10 @@ async def coinflip(ctx):
     await ctx.send(rancoin)
 
 
+@client.command()
+async def clear(ctx, amount=7):
+    await ctx.channel.purge(limit=amount)
+
+
 
 client.run(os.environ['DISCORD_TOKEN'])
