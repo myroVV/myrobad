@@ -6,7 +6,7 @@ from discord.ext import commands
 
 client = discord.Client()
 
-client = commands.Bot(command_prefix="=")
+client = commands.Bot(command_prefix=".")
 
 
 @client.event
@@ -25,6 +25,17 @@ async def coinflip(ctx):
 @client.command()
 async def clear(ctx, amount=7):
     await ctx.channel.purge(limit=amount)
+
+
+@client.command(name='avatar', aliases=['Avatar, 'av'])
+async def av_cmd(ctx, user: discord.Member):
+   mbed = discord.Embed(
+       color = discord.Color(0xffff),
+       title=f"{user}"
+   )
+    mbed.set_image(url=f"{user.avatar_url}")
+    await ctx.send(embed=mbed)
+
 
 
 
