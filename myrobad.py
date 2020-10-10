@@ -128,8 +128,8 @@ async def hack(ctx, member:discord.Member = None):
     embed=discord.Embed(title=f"**Hacking: {member}** 100%", color=0x2f3136)
     await m.edit(embed=embed)
     time.sleep(3)
-    embed=discord.Embed(title=f"{member} info ", description=f"*Email `{member}@hacked.com` Password `{random.choice(passwords)}`  IP `{random.choice(fakeips)}`*", color=0x2f3136)
-    embed.set_footer(text="Sending Insta 2's to your house 😈.")
+    embed=discord.Embed(title=f"{member}'s info ", description=f"**Email: `{member}@hacked.com` Password: `{random.choice(passwords)}`  IP: `{random.choice(fakeips)}`**", color=0x2f3136)
+    embed.set_footer(text="Sending Insta 2s to your house! 😈")
     await m.edit(embed=embed)
     time.sleep(1)
 
@@ -154,12 +154,12 @@ async def pp(ctx, member: discord.Member):
                 '8=============D **13 inches 📏**',
                 '8==============D **14 inches 📏**',
                 '8===============D **15 inches 📏**',
-                '8================D **16 inches 📏**'
-                '8=================D **17 inches 📏**'
-                '8==================D **18 inches 📏**'
-                '8===================D **19 inches 📏**'
-                '8==============================D **30 inches 😵**'
-                '8===============================D **31 inches 😵😵**'
+                '8================D **16 inches 📏**',
+                '8=================D **17 inches 📏**',
+                '8==================D **18 inches 📏**',
+                '8===================D **19 inches 📏**',
+                '8==============================D **30 inches 😵**',
+                '8===============================D **31 inches 😵😵**',
                 '8========================================D **40 inches!??!?!?!?! 😵😵**']
     await ctx.send(f"{member.mention}'s pp = {random.choice(sizes)}")
 
@@ -182,7 +182,7 @@ async def userinfo (ctx):
     for role in ctx.author.roles:
         list += f'<@&{role.id}> '
 
-    embed = discord.Embed(title=f'{ctx.author.name}', description=f"Userinfo of {ctx.author.name}", colour=ctx.author.colour)
+    embed = discord.Embed(title=f'{ctx.author.name}', description=f"User info of {ctx.author.name}", colour=ctx.author.colour)
     embed.set_thumbnail(url=ctx.author.avatar_url)
     embed.add_field(name='Tag#:', value=ctx.author, inline=True)
     embed.add_field(name='Nick:', value=ctx.author.nick, inline=True)
@@ -198,6 +198,28 @@ async def userinfo (ctx):
 
 
 
+
+
+@commands.command()
+async def slots(self, ctx):
+        emojis = "🍎🍊🍐🍋🍉🍇🍓🍒"
+        a = random.choice(emojis)
+        b = random.choice(emojis)
+        c = random.choice(emojis)
+
+        slotmachine = f"**[ {a} {b} {c} ]**\n"
+
+        if (a == b == c):
+            await ctx.send(f"{slotmachine} ``WINNER WINNER CHICKEN DINNER!`` 🎉")
+        else:
+            await ctx.send(f"{slotmachine} aww you lost! 😢")
+
+@slots.error
+async def slots_erroe(ctx, error):
+            if isinstance(error, commands.MissingRequiredArgument):
+                userembed=discord.Embed(title="__**SLOT MACHINE 6900**__", color=0xffffff)
+                userembed.add_field(name="  ``Usage - .slots``", value="*you don't really get anything from it but yeah lol*", inline=False)
+                await ctx.send(embed=userembed)
 
 
 
