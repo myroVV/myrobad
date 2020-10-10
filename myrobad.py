@@ -39,8 +39,28 @@ async def avatar(ctx, *, member: discord.Member = None):
 @commands.has_permissions(administrator=True) #this line checks if the user who uses the kick command has permission to kick a member from the server
 async def kick(ctx, member : discord.Member, *, reason=None):  #here as usual we use the ctx and member: discord.Member is used for mentioning some user and storing it
     await member.kick(reason=reason)  #now , this statement performs the actions ie. kicking the user from the server 
-    await ctx.send(f"**User** {member.mention} **has been kicked for** ``{reason}``") #and at last here we display the person who was kicked and the reason he was kicked for
+    await ctx.send(f"{member.mention} **has been kicked for** ``{reason}``") #and at last here we display the person who was kicked and the reason he was kicked for
 
+
+client.command()
+@commands.has_permissions(administrator=True)
+async def ban(ctx, member:discord.Member, *, reason=None):
+    await member.ban(reason=reason)
+    await ctx.send(f"{member.mention} **has been banned for** ``{reason}``")
+
+@client.command()
+@commands.has_permissions(administrator=True)
+async def unban(ctx, *, member):
+    banned_users = await ctx.guild.bans()
+    member_name, member_discriminator = member.split('#') 
+
+    for ban_entry in banned_users:
+        user = ban_entry.user
+
+        if(user.name, user.discriminator) == (member_name, member_discriminator):
+            await ctx.guild.unban(user)
+            await ctx.send(f"Unbanned {user.mention}"
+            return    
 
 
 
