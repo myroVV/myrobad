@@ -127,7 +127,7 @@ async def hack(ctx, member:discord.Member = None):
     await m.edit(embed=embed)
     time.sleep(3)
     embed=discord.Embed(title=f"{member} info ", description=f"*Email `{member}@hacked.com` Password `{random.choice(passwords)}`  IP `{random.choice(fakeips)}`*", color=0x2f3136)
-    embed.set_footer(text="this is a joke plses dont worry.")
+    embed.set_footer(text="Sending Insta 2's to your house 😈.")
     await m.edit(embed=embed)
     time.sleep(1)
 
