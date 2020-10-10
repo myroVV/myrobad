@@ -323,17 +323,21 @@ async def unmute(ctx, member: discord.Member):
 
 @client.command()
 async def help(ctx):
-    embed = discord.Embed(title="Help", description="The help command!", color=0x6da860, timestamp=datetime.utcnow())
+    embed = discord.Embed(title="Commands", description="More commands coming soon!", color=0x6da860, timestamp=datetime.utcnow())
+    embed.add_field(name="FUN!", value=f".", inline=False
     embed.add_field(name=".Help", value=f"Brings up the commands.", inline=False)
     embed.add_field(name=".Ping", value=f"Gets the latency of the bot.", inline=False)
     embed.add_field(name="._8ball (Question)", value=f"8ball O_O.", inline=False)
+    embed.add_field(name=".pp (User)", value=f"Find out how long your peepee is!", inline=False)
+    embed.add_field(name=".coinflip, .cf", value=f"flips a coin!", inline=False)
+    embed.add_field(name="MOD", value=f".", inline=False
     embed.add_field(name=".Ban", value=f"Bans a user.", inline=False)
     embed.add_field(name=".Kick", value=f"Kicks a user.", inline=False)
-    embed.add_field(name=".pp (User)", value=f"Find out how long your peepee is!", inline=False)
     embed.add_field(name=".userinfo (User)", value=f"Shows the info of the given user.", inline=False)
     embed.add_field(name=".Covid (Country/Continent) (Name)", value=f"Shows the COVID statistics.", inline=False)
     embed.set_footer(text=f"Suggested by: {ctx.author}", icon_url=ctx.author.avatar_url)
     await ctx.send(embed=embed)
+
 
 
 
