@@ -4,6 +4,7 @@ import random
 from time import sleep
 import time
 import pendulum
+from discord import Spotify
 from discord.ext import commands
 
 
