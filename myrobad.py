@@ -75,4 +75,12 @@ async def kick_error(ctx,error):
 
 
 
+@clear.error
+async def clear_error(ctx, error):
+    if isinstance(error, commands.MissingPermissions):
+        await ctx.channel.send("``You don't have permission to access this command!``")  
+
+
+
+
 client.run(os.environ['DISCORD_TOKEN'])
