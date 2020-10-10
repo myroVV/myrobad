@@ -3,14 +3,24 @@ from discord.ext import commands
 import asyncio
 from aiohttp import ClientSession
 
-class Example(commands.Cog):
+class Fact(commands.Cog):
+    """
+   Random Facts
+    """
+
 
     def __init__(self, client):
         self.client = client
-    
+
     @commands.Cog.listener()
     async def on_ready(self):
-        print('Bot is online.')
+        print("fact Cog has been loaded\n-----")
+
+    @commands.group(help= 'Base command')
+    async def covid(self, ctx):
+        if ctx.invoked_subcommand is None:
+            await ctx.send("`.Fact`")
+
 
 @commands.command()
 async def fact(ctx, self):
