@@ -11,6 +11,7 @@ import aiohttp
 from discord.ext import commands, tasks
 from discord.voice_client import VoiceClient
 from random import choice
+from datetime import datetime
 
 
 client = discord.Client()
@@ -131,7 +132,7 @@ async def hack(ctx, member:discord.Member = None):
         await ctx.send("``Please specify a user!``")
         return
 
-    passwords=['imnothackedlmao','sendnoodles63','ilovenoodles','icantcode','christianmicraft','server','icantspell','hackedlmao','WOWTONIGHT','69'] 
+    passwords=['dousquirt','sendnoodes63','ilovenood-','myrotrashcoder','unblacklistmyro','hackedlol','quickied','insta2dpce','kookikooki','69'] 
     fakeips=['154.2345.24.743','255.255. 255.0','356.653.56','101.12.8.6053','255.255. 255.0']
 
     embed=discord.Embed(title=f"**Hacking: {member}** 0%", color=0x2f3136)
@@ -307,35 +308,34 @@ async def userinfo(ctx):
     embed.add_field(name="Top Role", value=user.top_role.name, inline=True)
     await ctx.send(embed=embed)
 
-@client.command(description="The help command.")
-async def help(ctx, commandSent=None):
-    if commandSent != None:
 
-        for command in client.commands:
-            if commandSent.lower() == command.name.lower():
 
-                paramString = ""
 
-                for param in command.clean_params:
-                    paramString += param + ", "
+@client.command(description="Unmutes a specified user.")
+@commands.has_permissions(manage_messages=True)
+async def unmute(ctx, member: discord.Member):
+    mutedRole = discord.utils.get(ctx.guild.roles, name="Muted")
 
-                paramString = paramString[:-2]
+    await member.remove_roles(mutedRole)
+    await ctx.send(f"``Unmuted`` {member.mention}")
+    await member.send(f"``You were unmuted in the server`` {ctx.guild.name}")
 
-                if len(command.clean_params) == 0:
-                    paramString = "None"
-                    
-                embed=discord.Embed(title=f"HELP - {command.name}", description=command.description)
-                embed.add_field(name="parameters", value=paramString)
-                await ctx.message.delete()
-                await ctx.author.send(embed=embed)
-        
-    else:
-        embed=discord.Embed(title="Commands")
-        embed.add_field(name="ping", value="Gets the bot's latency.", inline=True)
-        embed.add_field(name="userinfo", value="Gives info about the user.", inline=True)
 
-        await ctx.message.delete()
-        await ctx.author.send(embed=embed)
+@client.command()
+async def help(ctx):
+    embed = discord.Embed(title="Help", description="The help command!", color=0x6da860, timestamp=datetime.utcnow())
+    embed.add_field(name=".Help", value=f"Brings up the commands.", inline=False)
+    embed.add_field(name=".Ping", value=f"Gets the latency of the bot.", inline=False)
+    embed.add_field(name="._8ball (Question)", value=f"8ball O_O.", inline=False)
+    embed.add_field(name=".Ban", value=f"Bans a user.", inline=False)
+    embed.add_field(name=".Kick", value=f"Kicks a user.", inline=False)
+    embed.add_field(name=".pp (User)", value=f"Find out how long your peepee is!", inline=False)
+    embed.add_field(name=".userinfo (User)", value=f"Shows the info of the given user.", inline=False)
+    embed.add_field(name=".Covid (Country/Continent) (Name)", value=f"Shows the COVID statistics.", inline=False)
+    embed.set_footer(text=f"Suggested by: {ctx.author}", icon_url=ctx.author.avatar_url)
+    await ctx.send(embed=embed)
+
+
 
 
 client.run(os.environ['DISCORD_TOKEN'])
