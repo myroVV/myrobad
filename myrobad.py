@@ -154,7 +154,7 @@ async def pp(ctx, member: discord.Member):
                 '8==============D',
                 '8===============D',
                 '8================D']
-    await ctx.send(f"{member.mention}'s pp size is': {random.choice(sizes)}")
+    await ctx.send(f"{member.mention}'s pp ': {random.choice(sizes)}")
 
 @pp.error
 async def dicksize_error(ctx, error):
