@@ -3,7 +3,6 @@ import os
 import random
 from time import sleep
 import time
-import requests
 from discord.ext import commands
 
 
