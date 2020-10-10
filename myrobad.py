@@ -201,8 +201,8 @@ async def pp(ctx, member: discord.Member):
 
 
 
-@pp.error
-async def dicksize_error(ctx, error):
+    @pp.error
+    async def pp(ctx, error):
             if isinstance(error, commands.MissingRequiredArgument):
                 userembed=discord.Embed(title="__**PP CALCULATOR 3900**__", color=0xffffff)
                 userembed.add_field(name="  ``Usage - .pp <user>``", value="`🍆🍆🍆🍆`", inline=False)
