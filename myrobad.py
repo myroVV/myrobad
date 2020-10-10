@@ -134,33 +134,38 @@ async def hack(ctx, member:discord.Member = None):
 
 
 
-
 @client.command(pass_context=True)
 async def pp(ctx, member: discord.Member):
     sizes = ['8D',
-                '8=D',
-                '8==D',
-                '8===D',
-                '8====D',  
-                '8=====D',
-                '8======D', 
-                '8=======D',
-                '8========D',
-                '8=========D',
-                '8==========D',
-                '8===========D',
-                '8============D',
-                '8=============D',
-                '8==============D',
-                '8===============D',
-                '8================D']
-    await ctx.send(f"{member.mention}'s pp '= {random.choice(sizes)}")
+                '8=D **1 inch LOL!📏**',
+                '8==D **2 inches KEKW 📏**',
+                '8===D **3 inches D: 📏',
+                '8====D **4 inches, ay bruh u good? 📏**',  
+                '8=====D **5 inches :O 📏**',
+                '8======D **6 inches 🤷‍♂️**', 
+                '8=======D **7 inches 📏',
+                '8========D **8 inches 📏**',
+                '8=========D **9 inches 📏**',
+                '8==========D **10 inches 📏**',
+                '8===========D **11 inches 📏**',
+                '8============D **12 inches 📏**',
+                '8=============D **13 inches 📏**',
+                '8==============D **14 inches 📏**',
+                '8===============D **15 inches 📏**',
+                '8================D **16 inches 📏**'
+                '8=================D **17 inches 📏**'
+                '8==================D **18 inches 📏**'
+                '8===================D **19 inches 📏**'
+                '8==============================D **30 inches 😵**'
+                '8===============================D **31 inches 😵😵**'
+                '8========================================D **40 inches!??!?!?!?! 😵😵**']
+    await ctx.send(f"{member.mention}'s pp = {random.choice(sizes)}")
 
 @pp.error
 async def dicksize_error(ctx, error):
             if isinstance(error, commands.MissingRequiredArgument):
                 userembed=discord.Embed(title="__**PP CALCULATOR 3900**__", color=0xffffff)
-                userembed.add_field(name=" - ``Usage - .pp <user>``", value="`🍆🍆🍆🍆`", inline=False)
+                userembed.add_field(name="  ``Usage - .pp <user>``", value="`🍆🍆🍆🍆`", inline=False)
                 await ctx.send(embed=userembed)
 
 
