@@ -26,15 +26,12 @@ async def coinflip(ctx):
 async def clear(ctx, amount=7):
     await ctx.channel.purge(limit=amount)
 
-
-@client.command(name='avatar', aliases=['Avatar', 'av'])
-async def av_cmd(ctx, user: discord.Member):
-   mbed = discord.Embed(
-       color = discord.Color(0xffff),
-       title=f"{user}"
-   )
-    mbed.set_image(url=f"{user.avatar_url}")
-    await ctx.send(embed=mbed)
-
+@client.command()
+async def avatar(ctx, *, member: discord.Member = None):
+    member = ctx.author if not member else member
+    embed = discord.Embed(title = f"{member.name}'s avatar", color = member.color , timestamp= ctx.message.created_at)
+    embed.set_image(url=member.avatar_url)
+    embed.set_footer(text=f"Requested by : {ctx.author}",icon_url=ctx.author.avatar_url)  
+    await ctx.send(embed=embed)
 
 client.run(os.environ['DISCORD_TOKEN'])
