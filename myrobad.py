@@ -17,9 +17,27 @@ async def on_ready():
 
 @client.command()
 async def coinflip(ctx):
-    choices = ["**Heads**", "**Tails"]
+    choices = ["``Heads``", "``Tails``"]
     rancoin = random.choice(choices)
     await ctx.send(rancoin)
+
+@client.command()
+async def kick(ctx, discord.Member=None):
+    if not member:
+        await ctx.send("``Please specify a user``")
+        return
+    await member.kick()
+    await ctx.send(f"``{member.mention} has been kicked.``")
+
+
+
+@client.command()
+async def ban(ctx, discord.Member=None):
+    if not member:
+        await ctx.send("``Please specify a user``")
+        return
+    await member.ban()
+    await ctx.send(f"``{member.mention} has been banned.``")
 
 
 
