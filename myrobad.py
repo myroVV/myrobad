@@ -5,6 +5,7 @@ from time import sleep
 import time
 from discord import Spotify
 from discord.ext import commands
+import pendulum
 
 
 client = discord.Client()
@@ -192,10 +193,6 @@ async def userinfo (ctx):
     embed.add_field(name='Roles:', value=list)
 
     await ctx.send(embed=embed)
-
-
-
-
 
 
 
