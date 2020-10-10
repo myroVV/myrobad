@@ -22,7 +22,7 @@ async def coinflip(ctx):
     await ctx.send(rancoin)
 
 @client.command()
-async def kick(ctx, discord.Member=None):
+async def kick(ctx, discord.member=None):
     if not member:
         await ctx.send("``Please specify a user``")
         return
@@ -32,7 +32,7 @@ async def kick(ctx, discord.Member=None):
 
 
 @client.command()
-async def ban(ctx, discord.Member=None):
+async def ban(ctx, discord.member=None):
     if not member:
         await ctx.send("``Please specify a user``")
         return
