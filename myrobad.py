@@ -259,9 +259,50 @@ async def boop (ctx, member:discord.User=None):
     if member == None or member == ctx.message.author:
         await ctx.channel.send("``You cannot boop yourself``")
         return
-    await ctx.channel.send(f"✅ {member} **Has been successfully booped! ✅**")
+    await ctx.channel.send(f"``✅ {member} **Has been successfully booped! ✅**")
 
 
       
+
+
+
+
+
+@client.command()
+    @commands.has_guild_permissions(mute_members=True)
+    async def mute(self, ctx, member: discord.Member, time : int, *, reason=None):
+        time_convert = {"s": 1, "m": 60, "h": 3600, "d": 86400}
+
+        def convert_time_to_seconds(time):
+            try:
+                return int(time[:-1]) * time_convert[time[-1]]
+            except:
+                return time
+       
+        await ctx.channel.purge(limit=1)
+        role = discord.utils.get(member.guild.roles, name='Muted')
+        await member.add_roles(role)
+        embed = discord.Embed(title=f'Muted', description=f'{member.mention} ``was muted`` ',
+                              colour=discord.Colour.blue())
+        embed.add_field(name='Reason', value=f'{reason}', inline=False)
+        embed.add_field(name='Duration', value=f'{time}', inline=True)
+        embed.add_field(name='By', value=f'{ctx.author.mention}')
+
+        embed.timestamp = datetime.datetime.utcnow()
+        await ctx.send(embed=embed)
+        await asyncio.sleep(time)
+        role = discord.utils.get(member.guild.roles, name='Muted')
+
+        await member.remove_roles(role)
+        embed = discord.Embed(title=f'unMuted', description=f'{member.mention} ``was unmuted`` ',
+                                  colour=discord.Colour.blue())
+        embed.add_field(name='Reason', value=f'{reason}', inline=False)
+        embed.add_field(name='Duration', value=f'{time}', inline=True)
+        embed.add_field(name='Muted By', value=f'{ctx.author.mention}')
+
+        embed.timestamp = datetime.datetime.utcnow()
+        await ctx.send(embed=embed)
+
+
 
 client.run(os.environ['DISCORD_TOKEN'])
