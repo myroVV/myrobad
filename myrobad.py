@@ -17,6 +17,12 @@ client = discord.Client()
 client = commands.Bot(command_prefix=".")
 
 
+@client.command()
+async def load(ctx, extension):
+
+
+
+
 @client.event
 async def on_ready():
     await client.change_presence(activity=discord.Activity(type=discord.ActivityType.listening, name="Whole Lotta Red"))
@@ -259,7 +265,7 @@ async def boop (ctx, member:discord.User=None):
     if member == None or member == ctx.message.author:
         await ctx.channel.send("``You cannot boop yourself``")
         return
-    await ctx.channel.send(f"``✅ {member} **Has been successfully booped! ✅**``")
+    await ctx.channel.send(f"``✅ {member} Has been successfully booped! ✅``")
 
 
       
