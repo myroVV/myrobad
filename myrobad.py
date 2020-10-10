@@ -91,7 +91,7 @@ async def members(ctx):
 
 
 
-@bot.command(pass_context=True)
+@client.command(pass_context=True)
 async def hack(ctx, member:discord.Member = None):
     if not member:
         await ctx.send("Please specify a member")
