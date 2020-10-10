@@ -28,14 +28,14 @@ async def ping(ctx):
 
 
 @client.command()
-@commands.has_permission(kick_members=True)
+@commands.has_permissions(kick_members=True)
 async def kick(ctx, member: discord.Member, *, reason=None):
     await member.kick(reason=reason)
     await ctx.send(f'``Member {member} has been kicked.``')
 
 
 @client.command()
-@commands.has_permission(ban_members=True)
+@commands.has_permissions(ban_members=True)
 async def ban(ctx, self, anything: discord.Member, *, reason=None):
     await member.ban(reason=reason)
     await ctx.send(f'``Member {member} has been banned.``')
