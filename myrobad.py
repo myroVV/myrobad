@@ -196,13 +196,10 @@ async def pp(ctx, member: discord.Member):
                 '8===============================D 31 inches 😵😵',
                 '8========================================D 40 inches!??!?!?!?! 😵😵']
     await ctx.send(f"{member.mention} = ``{random.choice(sizes)}``")
-    @commands.cooldown(1, 4, commands.BucketType.user)
 
 
-
-
-    @pp.error
-    async def pp(ctx, error):
+@pp.error
+async def dicksize_error(ctx, error):
             if isinstance(error, commands.MissingRequiredArgument):
                 userembed=discord.Embed(title="__**PP CALCULATOR 3900**__", color=0xffffff)
                 userembed.add_field(name="  ``Usage - .pp <user>``", value="`🍆🍆🍆🍆`", inline=False)
