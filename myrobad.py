@@ -18,6 +18,26 @@ client = discord.Client()
 client = commands.Bot(command_prefix=".")
 client.remove_command("help")
 
+import json
+import os
+
+if os.path.exists(os.getcwd() + "/config.json"):
+    
+    with open("./config.json") as f:
+        configData = json.load(f)
+
+else:
+    configTemplate = {"Token": "", "Prefix": "."}
+
+    with open(os.getcwd() + "/config.json", "w+") as f:
+        json.dump(configTemplate, f) 
+
+token = configData["Token"]
+prefix = configData["Prefix"]
+
+
+
+
 
 @client.command()
 async def load(ctx, extension):
@@ -237,7 +257,7 @@ async def _8ball(ctx, *, question):
                  'Maybe',
                  'Green',
                  'Not at all bro']
-    await ctx.send(f'``Question: {question}\nAnswer``: {random.choice(responces)}')
+    await ctx.send(f'``Question: {question}``\n``Answer``: {random.choice(responces)}')
 
 
 
@@ -267,6 +287,11 @@ async def boop (ctx, member:discord.User=None):
 
 
 
+
+@bot.command(description="Bot's latency.")
+async def ping(ctx):
+    latency = round(bot.latency * 1000, 1)
+    await ctx.send(f"``Pong! {latency}ms``")
 
 
 client.run(os.environ['DISCORD_TOKEN'])
