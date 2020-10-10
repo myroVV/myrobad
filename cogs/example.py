@@ -2,7 +2,7 @@ import discord
 from discord.ext import commands
 
 class Example(commands.Cog):
-
+#need
     def __init__(self, client):
         self.client = client
     
@@ -15,6 +15,6 @@ class Example(commands.Cog):
         await ctx.send('Pong!')
 
 
-
+#NEED
 def setup(client):
     client.add_cog(Example(client))
