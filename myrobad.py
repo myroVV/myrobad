@@ -198,8 +198,6 @@ async def userinfo (ctx):
 
 
 
-
-
 @commands.command()
 async def slots(self, ctx):
         emojis = "🍎🍊🍐🍋🍉🍇🍓🍒"
