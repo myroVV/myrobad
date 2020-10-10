@@ -3,6 +3,7 @@ import os
 import random
 from time import sleep
 import time
+import pendulum
 from discord.ext import commands
 
 
@@ -139,7 +140,7 @@ async def pp(ctx, member: discord.Member):
     sizes = ['8D',
                 '8=D **1 inch LOL!📏**',
                 '8==D **2 inches KEKW 📏**',
-                '8===D **3 inches D: 📏',
+                '8===D **3 inches D: 📏**',
                 '8====D **4 inches, ay bruh u good? 📏**',  
                 '8=====D **5 inches :O 📏**',
                 '8======D **6 inches 🤷‍♂️**', 
@@ -191,6 +192,30 @@ async def userinfo (ctx):
     embed.add_field(name='Roles:', value=list)
 
     await ctx.send(embed=embed)
+
+
+
+
+
+
+
+
+
+@client.command()
+    async def np(self, ctx, user: discord.Member=None):
+      if user is None:
+          user=ctx.author
+      for activity in user.activities:
+          if isinstance(activity, Spotify):
+              embed=discord.Embed(title=activity.title, description=activity.artist, color=activity.color)
+              embed.set_thumbnail(url=activity.album_cover_url)
+              embed.add_field(name=activity.album, value=(f"Song Length: {pendulum.duration(seconds=activity.duration.total_seconds()).in_words(locale='en')}"), inline=True)
+              embed.set_footer(text="myrosaurus | Spotify")
+              await ctx.send (embed=embed)
+              break
+      else:
+          await ctx.send(f"{user.mention} ``Is not listening to music atm.``")
+
 
 
 client.run(os.environ['DISCORD_TOKEN'])
