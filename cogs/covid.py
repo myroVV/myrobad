@@ -1,11 +1,10 @@
 import discord
 from discord.ext import commands
-from pathlib import Path # For paths
+from pathlib import Path 
 import random
 import asyncio
 from aiohttp import ClientSession
 import aiohttp
-
 
 
 
