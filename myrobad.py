@@ -62,4 +62,17 @@ async def ban_error(ctx,error):
         raise(error)
 
 
+@kick.error
+async def kick_error(ctx,error):
+    if isinstance(error, commands.MissingPermissions):
+        await ctx.send(f'{ctx.author.mention} ``You do not have the permission to kick someone!``')
+
+    if isinstance(error, commands.MissingRequiredArgument):
+        await ctx.send(f"{ctx.author.mention} ``Please specify a user!``")
+
+    else:
+        raise(error)
+
+
+
 client.run(os.environ['DISCORD_TOKEN'])
