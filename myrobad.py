@@ -269,8 +269,8 @@ async def boop (ctx, member:discord.User=None):
 
 
 @client.command()
-    @commands.has_guild_permissions(mute_members=True)
-    async def mute(self, ctx, member: discord.Member, time : int, *, reason=None):
+@commands.has_guild_permissions(mute_members=True)
+async def mute(self, ctx, member: discord.Member, time : int, *, reason=None):
         time_convert = {"s": 1, "m": 60, "h": 3600, "d": 86400}
 
         def convert_time_to_seconds(time):
