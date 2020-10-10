@@ -3,6 +3,7 @@ import os
 import random
 from time import sleep
 import time
+import requests
 from discord.ext import commands
 
 
@@ -170,6 +171,17 @@ async def dicksize_error(ctx, error):
 
 
 
+
+
+   @commands.command(aliases=['Meme', "M"])
+    async def meme(self, msg:commands.Context):
+        fetch:discord.Message = await msg.channel.send("fetching...")
+        req = requests.request("GET",'https://apis.duncte123.me/meme')
+        meme = req.json()
+        emb = discord.Embed()
+        emb.set_image(url=meme["data"]["image"])
+        emb.add_field(name="Quality meme", value=f'[{meme["data"]["title"]}]({meme["data"]["url"]})')
+        await fetch.edit(embed=emb)
 
 
 client.run(os.environ['DISCORD_TOKEN'])
