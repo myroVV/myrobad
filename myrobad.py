@@ -27,7 +27,7 @@ async def clear(ctx, amount=7):
     await ctx.channel.purge(limit=amount)
 
 
-@client.command(name='avatar', aliases=['Avatar, 'av'])
+@client.command(name='avatar', aliases=['Avatar'], 'av'])
 async def av_cmd(ctx, user: discord.Member):
    mbed = discord.Embed(
        color = discord.Color(0xffff),
