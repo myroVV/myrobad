@@ -46,7 +46,7 @@ async def kick(ctx, member : discord.Member, *, reason=None):  #here as usual we
 @commands.has_permissions(administrator=True)
 async def ban(ctx, member:discord.Member, *, reason=None):
     await member.ban(reason=reason)
-    await ctx.send(f"Banned {member.mention} sucessfully for {reason}")
+    await ctx.send(f"{member.mention} **has been banned for** ``{reason}``")
             
 
 
