@@ -199,7 +199,7 @@ async def userinfo (ctx):
 
 
 @commands.command()
-async def slots(self, ctx):
+async def slot(self, ctx):
         emojis = "🍎🍊🍐🍋🍉🍇🍓🍒"
         a = random.choice(emojis)
         b = random.choice(emojis)
@@ -212,7 +212,7 @@ async def slots(self, ctx):
         else:
             await ctx.send(f"{slotmachine} aww you lost! 😢")
 
-@slots.error
+@slot.error
 async def slots_erroe(ctx, error):
             if isinstance(error, commands.MissingRequiredArgument):
                 userembed=discord.Embed(title="__**SLOT MACHINE 6900**__", color=0xffffff)
