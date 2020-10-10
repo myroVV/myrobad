@@ -4,7 +4,7 @@ import asyncio
 from aiohttp import ClientSession
 
 class Example(commands.Cog):
-#need
+
     def __init__(self, client):
         self.client = client
     
