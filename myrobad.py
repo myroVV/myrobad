@@ -256,7 +256,6 @@ async def fact(ctx, self):
 
 
 
-
 @client.command()
 async def boop (ctx, member:discord.User=None):
     if member == None or member == ctx.message.author:
