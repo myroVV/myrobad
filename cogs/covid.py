@@ -1,6 +1,6 @@
 import discord
 from discord.ext import commands
-from pathlib import Path 
+from pathlib import Path # For paths
 import random
 import asyncio
 from aiohttp import ClientSession
@@ -8,10 +8,12 @@ import aiohttp
 
 
 
+
 class Covid(commands.Cog):
     """
     Covid API Commands!
     """
+
 
 
     def __init__(self, client):
