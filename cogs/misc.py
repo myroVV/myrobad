@@ -32,16 +32,24 @@ class Misc(commands.Cog):
                 embed.add_field(name='**Fun Fact**', value=fact, inline=False)
 
 
+    @client.command()
+    async def whois (ctx):
 
-    @commands.command(aliases=['Meme', "M"])
-    async def meme(self, msg:commands.Context):
-        fetch:discord.Message = await msg.channel.send("Getting a meme...")
-        req = requests.request("GET",'https://apis.duncte123.me/meme')
-        meme = req.json()
-        emb = discord.Embed()
-        emb.set_image(url=meme["data"]["image"])
-        emb.add_field(name="Quality meme", value=f'[{meme["data"]["title"]}]({meme["data"]["url"]})')
-        await fetch.edit(embed=emb)
+        list = ''
+        for role in ctx.author.roles:
+            list += f'<@&{role.id}> '
+
+        embed = discord.Embed(title=f'{ctx.author.name}', description=f"This shows the User Info of {ctx.author.name}", colour=ctx.author.colour)
+        embed.set_thumbnail(url=ctx.author.avatar_url)
+        embed.add_field(name='Discord Tag:', value=ctx.author, inline=True)
+        embed.add_field(name='Nick:', value=ctx.author.nick, inline=True)
+        embed.add_field(name='Status:', value=ctx.author.status,inline=True )
+        embed.add_field(name='ID:', value=ctx.author.id, inline=False)
+        embed.add_field(name='Created On:', value=ctx.author.created_at, inline=False)
+        embed.add_field(name='Joined:', value=ctx.author.joined_at, inline=False)
+        embed.add_field(name='Roles:', value=list)
+
+        await ctx.send(embed=embed)
 
 
 
