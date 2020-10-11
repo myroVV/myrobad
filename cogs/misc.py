@@ -41,7 +41,7 @@ class Misc(commands.Cog):
         embed.add_field(name="Member info", value=f'Nickname: **{user.nick}**\nJoined date: **{user.joined_at.strftime("%a, %d %b %Y %I:%M %p")}**\nHighest Role: **{user.top_role}**', inline=False)                
         embed.set_thumbnail(url=user.avatar_url)
         embed.set_author(name=ctx.message.author, icon_url=ctx.message.author.avatar_url)
-        await ctx.send(embed=embed, delete_after=10.5)
+        await ctx.send(embed=embed)
 
 
 def setup(client):
