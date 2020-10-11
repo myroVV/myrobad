@@ -138,7 +138,7 @@ class Rates(commands.Cog):
                     '8===D 3 inches D: 📏',
                     '8========================================D 40 inches!??!?!?!?! 😵😵']
         embed = discord.Embed(title="🍆 PP size Meter 🍆",
-                              description=f"**{member.mention}'s pp\n{random.choice(sizes)}**",
+                              description=f"``{member.mention}'s pp\n{random.choice(sizes)}``",
                               colour=discord.Color.blue(),
                               timestamp=datetime.utcnow())
         # embed.add_field(name="\u200b", value=f"{random.choice(response)}")
