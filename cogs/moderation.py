@@ -55,7 +55,7 @@ class Moderation:
     """Commands used to moderate your guild"""
     
     def __init__(self, bot):
-        self.bot = bot
+        self.client = client
     
     async def __error(self, ctx, error):
         if isinstance(error, commands.BadArgument):
@@ -141,5 +141,5 @@ class Moderation:
                                 
                                 
 def setup(bot):
-    bot.add_cog(Moderation(bot))
+    bot.add_cog(Moderation(client))
        
