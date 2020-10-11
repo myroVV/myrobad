@@ -227,7 +227,7 @@ class Rates(commands.Cog):
             random.randint(0, 100)
 
             embed = discord.Embed(title="**Ego Calcutor 1200 📈**",
-                                description=f"{member.mention} has an ego of **{random.randint(50, 400)}**",
+                                description=f"{member.mention} has an ego of **{random.randint(70, 1500)}:arrow_up:**",
                                 colour=discord.Color.blue(),
                                 timestamp=datetime.utcnow())
 
