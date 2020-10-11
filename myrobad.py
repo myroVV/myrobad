@@ -271,8 +271,8 @@ async def unmute(ctx, member: discord.Member):
 async def help(ctx):
     embed = discord.Embed(title="Commands", description="More commands coming soon!", color=0x6da860, timestamp=datetime.utcnow())
     embed.add_field(name="**Mod**", value=f"``.kick`` ``.ban`` ``.mute`` ``.lock``", inline=False)
-    embed.add_field(name="**Fun**", value=f"``.8ball`` ``.iq`` ``.ego`` ``.pp`` ``.potacc`` ``.hack`` ``.slot`` ``.fact``", inline=False)
-    embed.add_field(name="**Info**", value=f"``.av`` ``.avatar`` ``.membercount`` ``.userinfo``", inline=False)
+    embed.add_field(name="**Fun**", value=f"``.8ball`` ``.iq`` ``.ego`` ``.pp`` ``.potacc`` ``.potaccuracy`` ``.hack`` ``.slot`` ``.fact``", inline=False)
+    embed.add_field(name="**Info**", value=f"``.av`` ``.avatar`` ``.userinfo``", inline=False)
     embed.add_field(name="**Mod**", value=f"``.kick`` ``.ban`` ``.mute`` ``.lock`` ``.covid`` ``.news`` ", inline=False)
     embed.set_footer(text=f"Suggested by: {ctx.author}", icon_url=ctx.author.avatar_url)
     await ctx.send(embed=embed)

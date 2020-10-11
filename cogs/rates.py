@@ -146,7 +146,7 @@ class Rates(commands.Cog):
 
 
 
-    @commands.command()
+    @commands.command(aliases=['potaccuracy'])
     @commands.cooldown(1, 3, commands.BucketType.guild)
     async def potacc(self, ctx, member : discord.Member):
             random.randint(0, 100)
