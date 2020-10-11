@@ -57,6 +57,10 @@ class Fun(commands.Cog):
 
 
 
+
+
+
+
     @commands.command()
     async def fact(self, ctx):
             url = f'https://uselessfacts.jsph.pl/random.json?language=en'
