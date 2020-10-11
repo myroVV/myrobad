@@ -9,8 +9,7 @@ class ModCog(commands.Cog):
 
     @commands.Cog.listener()
     async def on_ready(self):
-        print("Mod Cog has been loaded\n-----")
-
+        print("Modcc Cog has been loaded\n-----")
 
 
     @commands.command(help="Ban a user.")
