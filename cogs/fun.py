@@ -1,4 +1,6 @@
 from discord.ext import commands
+from aiohttp import ClientSession
+import discord
 import random
 
 class Fun(commands.Cog):
@@ -30,6 +32,27 @@ class Fun(commands.Cog):
                 await ctx.send(f"{slotmachine} ``WINNER WINNER CHICKEN DINNER 🎉🎉🎉`` ")
             else:
                 await ctx.send(f"{slotmachine} u lost lol 😢")
+
+
+    @commands.command(help='Shows top News Story')
+    async def news(self, ctx):
+        key = 'key'
+        url = f'https://newsapi.org/v2/top-headlines?country=au&apiKey={key}'
+        print(url)
+        async with ClientSession() as session:
+            async with session.get(url) as response:
+                r = await response.json()
+                firstArticle = r['articles'][0]
+                nSource = firstArticle['source']['name']
+                nTitle = firstArticle['title']
+                nTimestamp = firstArticle['publishedAt']
+                embed = discord.Embed(title=f'News Title: {nTitle}', description=f'News Source: {nSource}')
+                embed.add_field(name='News Content', value=firstArticle['description'])
+                #embed.set_image(url=firstArticle['urlToImage'])
+                embed.set_footer(text=f'News Timestamp: {nTimestamp}')
+                await ctx.send(embed=embed)
+
+
 
 
 def setup(client):

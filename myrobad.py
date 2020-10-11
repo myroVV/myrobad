@@ -54,7 +54,7 @@ async def on_ready():
 
 
 @client.command()
-async def coinflip(ctx, aliases=['cf']):
+async def coinflip(ctx):
     choices = ["``Heads``", "``Tails``"]
     rancoin = random.choice(choices)
     await ctx.send(rancoin)
