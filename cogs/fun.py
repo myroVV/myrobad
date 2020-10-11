@@ -18,7 +18,6 @@ class Fun(commands.Cog):
         print("Fun Cog has been loaded\n-----")
 
 
-
     @commands.command()
     async def slot(self, ctx):
             emojis = "🍎🍊🍐🍋🍉🍇🍓🍒"
@@ -36,7 +35,7 @@ class Fun(commands.Cog):
 
     @commands.command(help='Shows top News Story')
     async def news(self, ctx):
-        key = 'key'
+        key = 'd84cca93f77a4df7a3eb3c91f5775aa1'
         url = f'https://newsapi.org/v2/top-headlines?country=au&apiKey={key}'
         print(url)
         async with ClientSession() as session:
