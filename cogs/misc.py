@@ -31,23 +31,22 @@ class Misc(commands.Cog):
                 embed.add_field(name='**Fun Fact**', value=fact, inline=False)
 
 
-    @commands.command(aliases=['userinfo, info'])
-    async def whois (self, ctx):
 
-        list = ''
-        for role in ctx.author.roles:
-            list += f'<@&{role.id}> '
+    @commands.command(aliases=['userinfo'])
+    async def userinfo(self, ctx, member: discord.Member):
+        roles = [role for role in member.roles]
 
-        embed = discord.Embed(title=f'{ctx.author.name}', description=f"This shows the User Info of {ctx.author.name}", colour=ctx.author.colour)
-        embed.set_thumbnail(url=ctx.author.avatar_url)
-        embed.add_field(name='Discord Tag:', value=ctx.author, inline=True)
-        embed.add_field(name='Nick:', value=ctx.author.nick, inline=True)
-        embed.add_field(name='Status:', value=ctx.author.status,inline=True )
-        embed.add_field(name='ID:', value=ctx.author.id, inline=False)
-        embed.add_field(name='Created On:', value=ctx.author.created_at, inline=False)
-        embed.add_field(name='Joined:', value=ctx.author.joined_at, inline=False)
-        embed.add_field(name='Roles:', value=list)
-
+        embed=discord.Embed(color=ctx.author.color, timestamp=ctx.message.created_at)
+        embed.set_author(name=f"User Info - {member}")
+        embed.set_thumbnail(url=member.avatar_url)
+        embed.set_footer(text=f"Requested By {ctx.author}", icon_url=ctx.author.avatar_url)
+        embed.add_field(name="ID:", value=member.id)
+        embed.add_field(name="Member Name:", value=member.display_name)
+        embed.add_field(name="Created:", value=member.created_at.strftime("%a, %#d %B %Y, %I:%M %p UTC"))
+        embed.add_field(name="Joined Server:", value=member.joined_at.strftime("%a, %#d %B %Y, %I:%M %p UTC"))
+        embed.add_field(name=f"Roles ({len(roles)})", value=" ".join([role.mention for role in roles]))
+        embed.add_field(name="Top Role:", value=member.top_role.mention)
+        embed.add_field(name="Bot", value=member.bot)
         await ctx.send(embed=embed)
 
 
