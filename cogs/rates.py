@@ -194,7 +194,7 @@ class Rates(commands.Cog):
             random.randint(0, 100)
 
             embed = discord.Embed(title="**IQ Calcutor 3300 🧠**",
-                                description=f"{member.mention} has an iq of **{random.randint(0, 85)}%**",
+                                description=f"{member.mention} has an iq of **{random.randint(0, 200)}**",
                                 colour=discord.Color.blue(),
                                 timestamp=datetime.utcnow())
 
@@ -205,7 +205,7 @@ class Rates(commands.Cog):
     @iq.error
     async def iq_error(self, ctx, error):
             if isinstance(error, commands.MissingRequiredArgument):
-                userembed=discord.Embed(title="__**Q Calcutor 3300 🧠**__", color=0xffffff)
+                userembed=discord.Embed(title="__**IQ Calcutor 3300 🧠**__", color=0xffffff)
                 userembed.add_field(name="  **Please input a user!**", value="---🧠---", inline=False)
                 await ctx.send(embed=userembed)
 
@@ -217,6 +217,38 @@ class Rates(commands.Cog):
                 raise error    
                 
 
+
+
+
+
+    @commands.command()
+    @commands.cooldown(1, 3, commands.BucketType.guild)
+    async def ego(self, ctx, member : discord.Member):
+            random.randint(0, 100)
+
+            embed = discord.Embed(title="**Ego Calcutor 1200 🧠**",
+                                description=f"{member.mention} has an iq of **{random.randint(40, 250)}**",
+                                colour=discord.Color.blue(),
+                                timestamp=datetime.utcnow())
+
+            await ctx.send(embed=embed)
+
+
+
+    @ego.error
+    async def ego_error(self, ctx, error):
+            if isinstance(error, commands.MissingRequiredArgument):
+                userembed=discord.Embed(title="__**Ego Calcutor 1200 📈**__", color=0xffffff)
+                userembed.add_field(name="  **Please input a user!**", value="---📈---", inline=False)
+                await ctx.send(embed=userembed)
+
+
+            if isinstance(error, commands.CommandOnCooldown):
+                msg = '``This command is on cooldown, please try again in {:.2f}s``'.format(error.retry_after)
+                await ctx.send(msg)
+            else:
+                raise error    
+                
 
 
 
