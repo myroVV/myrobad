@@ -237,7 +237,7 @@ async def dicksize_error(ctx, error):
 
 
 @client.command(aliases=['8ball'])
-@commands.cooldown(1, 5, commands.BucketType.guild)
+@commands.cooldown(1, 3, commands.BucketType.guild)
 async def _8ball(ctx, *, question):
     responces = ['Yes',
                  'Yessir',
@@ -251,7 +251,7 @@ async def _8ball(ctx, *, question):
 @_8ball.error
 async def _8ball_error(ctx, error):
     if isinstance(error, commands.CommandOnCooldown):
-        msg = 'This command is on cooldown, please try again in {:.2f}s'.format(error.retry_after)
+        msg = '``This command is on cooldown, please try again in {:.2f}s``'.format(error.retry_after)
         await ctx.send(msg)
     else:
         raise error
