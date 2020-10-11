@@ -230,6 +230,9 @@ class ModCog(commands.Cog):
             a = error.retry_after
             a = round(a)
             await ctx.send(f"Sorry {ctx.author.mention} This command in on cooldown, Try again in {a} seconds.")
+        
+        else:
+            raise(error)
 
 
 def setup(bot):
