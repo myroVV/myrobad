@@ -171,7 +171,6 @@ async def hack(ctx, member:discord.Member = None):
 
 
 @client.command(pass_context=True)
-@commands.cooldown(1, 5, commands.BucketType.guild)
 async def pp(ctx, member: discord.Member):
     sizes = ['8D',
                 '8=D 1 inch LOL!📏',
