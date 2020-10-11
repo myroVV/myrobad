@@ -266,6 +266,11 @@ async def _8ball(ctx, *, question):
                  'Squirt first 😳',
                  'Naw',
                  'Maybe',
+                 'Idk bro you ask me',
+                 'Ur mom lol',
+                 'Stfu dumb retard',
+                 'Dude no lol',
+                 'No way Jose',
                  'DA VINKI?',
                  'Not at all bro']
     await ctx.send(f'``Question:`` **{question}**\n``Answer``: **{random.choice(responces)}**')
