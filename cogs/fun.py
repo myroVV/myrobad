@@ -78,7 +78,7 @@ class Fun(commands.Cog):
         random.randint(0, 100)
 
         embed = discord.Embed(title="**Gay Meter 69420 :rainbow_flag:**",
-                            description=f"``{ctx.author} is {random.randint(0, 100)}% gay!``",
+                            description=f"``{member.mention} is {random.randint(0, 100)}% gay!``",
                             colour=discord.Color.blue(),
                             timestamp=datetime.utcnow())
 
