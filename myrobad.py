@@ -188,5 +188,103 @@ async def help(ctx):
 
 
 
+@client.command()
+@commands.has_permissions(administrator=True) #this line checks if the user who uses the kick command has permission to kick a member from the server
+async def kick(ctx, member : discord.Member, *, reason=None):  #here as usual we use the ctx and member: discord.Member is used for mentioning some user and storing it
+    await member.kick(reason=reason)  #now , this statement performs the actions ie. kicking the user from the server 
+    await ctx.send(f"{member.mention} **has been kicked for** ``{reason}``") #and at last here we display the person who was kicked and the reason he was kicked for
+
+
+@client.command()
+@commands.has_permissions(administrator=True)
+async def ban(ctx, member:discord.Member, *, reason=None):
+    await member.ban(reason=reason)
+    await ctx.send(f"{member.mention} **has been banned for** ``{reason}``")
+            
+
+
+@ban.error
+async def ban_error(ctx,error):
+    if isinstance(error, commands.MissingPermissions):
+        userembed=discord.Embed(title="__**Missing Permissions**__", color=0xffffff)
+        userembed.add_field(name="  **You are missing missions permissions to ban users**", value="`:(`", inline=False)
+        await ctx.send(embed=userembed)
+
+    if isinstance(error, commands.MissingRequiredArgument):
+        userembed=discord.Embed(title="__**Ban**__", color=0xffffff)
+        userembed.add_field(name="  **Usage - .ban (User)**", value="*Bans a user*", inline=False)
+        await ctx.send(embed=userembed)
+
+    else:
+        raise(error)
+
+@kick.error
+async def kick_error(ctx,error):
+    if isinstance(error, commands.MissingPermissions):
+        userembed=discord.Embed(title="__**Missing Permissions**__", color=0xffffff)
+        userembed.add_field(name="  **You are missing missions permissions to kick users**", value="`:(`", inline=False)
+        await ctx.send(embed=userembed)
+
+    if isinstance(error, commands.MissingRequiredArgument):
+        userembed=discord.Embed(title="__**Ban**__", color=0xffffff)
+        userembed.add_field(name="  **Usage - .Kick (User)**", value="*Kicks a user*", inline=False)
+        await ctx.send(embed=userembed)
+
+    else:
+        raise(error)
+
+
+@clear.error
+async def clear_error(ctx,error):
+    if isinstance(error, commands.MissingPermissions):
+        userembed=discord.Embed(title="__**Missing Permissions**__", color=0xffffff)
+        userembed.add_field(name="  **You are missing missions permissions to purge messages**", value="`:(`", inline=False)
+        await ctx.send(embed=userembed)
+
+    if isinstance(error, commands.MissingRequiredArgument):
+        userembed=discord.Embed(title="__**Ban**__", color=0xffffff)
+        userembed.add_field(name="  **Usage - .clear (x)**", value="*Purges chat by the given amount*", inline=False)
+        await ctx.send(embed=userembed)
+
+    else:
+        raise(error)
+
+
+
+
+
+@client.command(description="Unbans a member")
+@commands.has_permissions(ban_members=True)
+async def unban(ctx, *, member):
+    bannedUsers = await ctx.guild.bans()
+    name, discriminator = member.split("#")
+
+    for ban in bannedUsers:
+        user = ban.user
+
+        if(user.name, user.discriminator) == (name, discriminator):
+            await ctx.guild.unban(user)
+            await ctx.send(f"{user.mention} **has been unbanned.**")
+            return
+
+
+
+
+
+
+
+@client.command(description="Unmutes a specified user.")
+@commands.has_permissions(manage_messages=True)
+async def unmute(ctx, member: discord.Member):
+    mutedRole = discord.utils.get(ctx.guild.roles, name="Muted")
+
+    await member.remove_roles(mutedRole)
+    await ctx.send(f"``Unmuted`` {member.mention}")
+    await member.send(f"``You were unmuted in the server`` {ctx.guild.name}")
+
+
+
+
+
 
 client.run(os.environ['DISCORD_TOKEN'])
