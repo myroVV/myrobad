@@ -226,8 +226,8 @@ class Rates(commands.Cog):
     async def ego(self, ctx, member : discord.Member):
             random.randint(0, 100)
 
-            embed = discord.Embed(title="**Ego Calcutor 1200 🧠**",
-                                description=f"{member.mention} has an iq of **{random.randint(40, 250)}**",
+            embed = discord.Embed(title="**Ego Calcutor 1200 📈**",
+                                description=f"{member.mention} has an ego of **{random.randint(50, 400)}**",
                                 colour=discord.Color.blue(),
                                 timestamp=datetime.utcnow())
 
