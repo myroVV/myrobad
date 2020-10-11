@@ -31,7 +31,7 @@ class Misc(commands.Cog):
                 embed.add_field(name='**Fun Fact**', value=fact, inline=False)
 
 
-    @commands.command()
+    @commands.command(aliases=['userinfo, info'])
     async def whois (self, ctx):
 
         list = ''

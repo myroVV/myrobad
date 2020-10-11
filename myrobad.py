@@ -301,20 +301,6 @@ async def unban(ctx, *, member):
 
 
 
-@client.command(description="Gets info about the user")
-async def userinfo(ctx):
-    user = ctx.author
-
-    embed=discord.Embed(title="USER INFO", description=f"Here is the info we retrieved about {user}", colour=user.colour)
-    embed.set_thumbnail(url=user.avatar_url)
-    embed.add_field(name="Name", value=user.name, inline=True)
-    embed.add_field(name="Nickname", value=user.nick, inline=True)
-    embed.add_field(name="ID", value=user.id, inline=True)
-    embed.add_field(name="Status", value=user.status, inline=True)
-    embed.add_field(name="Top Role", value=user.top_role.name, inline=True)
-    await ctx.send(embed=embed)
-
-
 
 
 @client.command(description="Unmutes a specified user.")
