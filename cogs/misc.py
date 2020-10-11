@@ -22,7 +22,7 @@ class Misc(commands.Cog):
 
 
 
-    @commands.command(pass_context=True, aliases=['uinfo'])
+    @commands.command(pass_context=True)
     async def userinfo(self, ctx, user: discord.Member=None):
         user = user or ctx.message.author
         embed = discord.Embed(title=f"{user}'s info", color=0xffffff)
