@@ -171,6 +171,7 @@ async def hack(ctx, member:discord.Member = None):
 
 
 @client.command(pass_context=True)
+@commands.cooldown(1, 3, commands.BucketType.guild)
 async def pp(ctx, member: discord.Member):
     sizes = ['8D',
                 '8=D 1 inch LOL!📏',
@@ -232,6 +233,13 @@ async def dicksize_error(ctx, error):
 
 
 
+@pp.error
+async def pp_error(ctx, error):
+    if isinstance(error, commands.CommandOnCooldown):
+        msg = '``This command is on cooldown, please try again in {:.2f}s``'.format(error.retry_after)
+        await ctx.send(msg)
+    else:
+        raise error
 
 
 
