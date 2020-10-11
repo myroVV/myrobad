@@ -237,13 +237,14 @@ async def dicksize_error(ctx, error):
 
 
 @client.command(aliases=['8ball'])
+@commands.cooldown(1, 5, commands.BucketType.guild)
 async def _8ball(ctx, *, question):
     responces = ['Yes',
                  'Yessir',
                  'Squirt first 😳',
                  'Naw',
                  'Maybe',
-                 'Green',
+                 'DA VINKI?',
                  'Not at all bro']
     await ctx.send(f'``Question:`` **{question}**\n``Answer``: **{random.choice(responces)}**')
 
