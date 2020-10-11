@@ -32,7 +32,7 @@ class Misc(commands.Cog):
 
 
 
-    @commands.command(aliases=['userinfo'])
+    @commands.command(aliases=['uinfo'])
     async def userinfo(self, ctx, member: discord.Member):
         roles = [role for role in member.roles]
 
