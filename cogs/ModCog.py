@@ -3,7 +3,7 @@ from discord.ext import commands
 import asyncio
 
 
-class Mod(commands.Cog):
+class ModCog(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
 
@@ -232,8 +232,8 @@ class Mod(commands.Cog):
             await ctx.send(f"Sorry {ctx.author.mention} This command in on cooldown, Try again in {a} seconds.")
         
         else:
-            raise(error)
+         raise(error)
 
 
 def setup(bot):
-    bot.add_cog(Mod(bot))
+    bot.add_cog(ModCog(bot))
