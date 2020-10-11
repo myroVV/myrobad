@@ -67,7 +67,5 @@ async def fact(ctx, self):
 
 
 
-
-
 def setup(client):
     client.add_cog(Fun(client))
