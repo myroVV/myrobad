@@ -54,7 +54,7 @@ class Fun(commands.Cog):
 
 
     @commands.command()
-    async def fact(ctx, self):
+    async def fact(self, ctx):
             url = f'https://uselessfacts.jsph.pl/random.json?language=en'
             async with ClientSession() as session:
                 async with session.get(url) as response:
