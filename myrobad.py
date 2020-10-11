@@ -189,7 +189,6 @@ async def hack(ctx, member:discord.Member = None):
 @client.command(pass_context=True, aliases=['peepee'])
 @commands.cooldown(1, 3, commands.BucketType.guild)
 async def pp(ctx, member: discord.Member):
-    member = member or ctx.message.author
     sizes = ['8D',
                 '8=D 1 inch LOL!📏',
                 '8==D 2 inches KEKW 📏',
@@ -241,11 +240,17 @@ async def pp(ctx, member: discord.Member):
     await ctx.send(f"{member.mention} : ``{random.choice(sizes)}``")
 
 
+@pp.error
+async def pp_error(ctx, error):
+            if isinstance(error, commands.MissingRequiredArgument):
+                userembed=discord.Embed(title="__**PP CALCULATOR 3900**__", color=0xffffff)
+                userembed.add_field(name="  ``Usage - .pp <user>``", value="`🍆🍆🍆🍆`", inline=False)
+                await ctx.send(embed=userembed)
 
 
 
 @pp.error
-async def pp_error(ctx, error):
+async def peepee_error(ctx, error):
     if isinstance(error, commands.CommandOnCooldown):
         msg = '``This command is on cooldown, please try again in {:.2f}s``'.format(error.retry_after)
         await ctx.send(msg)
