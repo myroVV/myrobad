@@ -222,7 +222,7 @@ def dic(word):
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(description='English Dictionary')
     parser.add_argument('word', help='Input word to search')
-    args = parser.parse_args(args)
+    args = parser.parse_args()
 
     data = json.load(open('data.json'))  # loads the dictionary
 
