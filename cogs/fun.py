@@ -2,6 +2,9 @@ from discord.ext import commands
 from aiohttp import ClientSession
 import discord
 import random
+from discord.ext.commands import Cog, BucketType
+from discord.ext.commands import BadArgument
+from discord.ext.commands import command, cooldown
 from datetime import date, datetime, timedelta
 
 class Fun(commands.Cog):
@@ -70,17 +73,30 @@ class Fun(commands.Cog):
 
 
     @commands.command()
-    async def gayrate(self, ctx, member : discord.Member):
+    @commands.cooldown(1, 3, commands.BucketType.guild)
+    async def gay(self, ctx, member : discord.Member):
         random.randint(0, 100)
 
-        embed = discord.Embed(title="**Gay Meter :rainbow_flag:**",
+        embed = discord.Embed(title="**Gay Meter 69420 :rainbow_flag:**",
                             description=f"``{ctx.author} is {random.randint(0, 100)}% gay!``",
                             colour=discord.Color.blue(),
                             timestamp=datetime.utcnow())
 
         await ctx.send(embed=embed)
 
+    @gay.error
+    async def gay_error(self, ctx, error):
+        if isinstance(error, commands.MissingRequiredArgument):
+            userembed=discord.Embed(title="__**Gay Meter 69420 :rainbow_flag:**__", color=0xffffff)
+            userembed.add_field(name="  **Please input a user!**", value=":rainbow_flag: :rainbow_flag: :rainbow_flag: :rainbow_flag:", inline=False)
+            await ctx.send(embed=userembed)
 
+            
+        if isinstance(error, commands.CommandOnCooldown):
+            msg = '``This command is on cooldown, please try again in {:.2f}s``'.format(error.retry_after)
+            await ctx.send(msg)
+        else:
+            raise error
 
 
 def setup(client):
