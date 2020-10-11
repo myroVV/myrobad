@@ -44,10 +44,10 @@ class Rates(commands.Cog):
 
                 
             if isinstance(error, commands.CommandOnCooldown):
-                embed = discord.Embed(title="✖️ COOLDOWN ✖️", description="``This command is on cooldown, please try again in {:.2f}s``'.format(error.retry_after)", color=0x6da860, timestamp=datetime.utcnow())
-                await ctx.send(embed=embed)
+                msg = '``This command is on cooldown, please try again in {:.2f}s``'.format(error.retry_after)
+                await ctx.send(msg)
             else:
-                raise error
+                raise error    
 
     
 
@@ -144,12 +144,14 @@ class Rates(commands.Cog):
         # embed.add_field(name="\u200b", value=f"{random.choice(response)}")
         await ctx.send(embed=embed)
 
+
+
     @commands.command()
     @commands.cooldown(1, 3, commands.BucketType.guild)
     async def potacc(self, ctx, member : discord.Member):
             random.randint(0, 100)
 
-            embed = discord.Embed(title="**Pot Accuracy Calculator 7200🧪**",
+            embed = discord.Embed(title="**Pot Accuracy Calculator 7200 🧪**",
                                 description=f"{member.mention} has a pot accuracy of **{random.randint(0, 100)}%**",
                                 colour=discord.Color.blue(),
                                 timestamp=datetime.utcnow())
@@ -159,31 +161,64 @@ class Rates(commands.Cog):
     @potacc.error
     async def potacc_error(self, ctx, error):
             if isinstance(error, commands.MissingRequiredArgument):
-                userembed=discord.Embed(title="__**Pot Accuracy Calculator 7200🧪**__", color=0xffffff)
-                userembed.add_field(name="  **Please input a user!**", value="🧪 🧪 🧪 🧪", inline=False)
+                userembed=discord.Embed(title="__**Pot Accuracy Calculator 7200 🧪**__", color=0xffffff)
+                userembed.add_field(name="  **Please input a user!**", value="---🧪---", inline=False)
                 await ctx.send(embed=userembed)
 
                 
             if isinstance(error, commands.CommandOnCooldown):
-                embed = discord.Embed(title="✖️ COOLDOWN ✖️", description="``This command is on cooldown, please try again in {:.2f}s``'.format(error.retry_after)", color=0x6da860, timestamp=datetime.utcnow())
-                await ctx.send(embed=embed)
+                msg = '``This command is on cooldown, please try again in {:.2f}s``'.format(error.retry_after)
+                await ctx.send(msg)
             else:
-                raise error
-
+                raise error    
 
     @pp.error
     async def pp_error(self, ctx, error):
             if isinstance(error, commands.MissingRequiredArgument):
                 userembed=discord.Embed(title="__**PP Calculator 🍆**__", color=0xffffff)
-                userembed.add_field(name="  **Please input a user!**", value="🍆 🍆 🍆 🍆", inline=False)
+                userembed.add_field(name="  **Please input a user!**", value="---🍆---", inline=False)
                 await ctx.send(embed=userembed)
 
                 
             if isinstance(error, commands.CommandOnCooldown):
-                embed = discord.Embed(title="✖️ COOLDOWN ✖️", description="``This command is on cooldown, please try again in {:.2f}s``'.format(error.retry_after)", color=0x6da860, timestamp=datetime.utcnow())
-                await ctx.send(embed=embed)
+                msg = '``This command is on cooldown, please try again in {:.2f}s``'.format(error.retry_after)
+                await ctx.send(msg)
             else:
-                raise error
+                raise error    
+
+
+
+    @commands.command()
+    @commands.cooldown(1, 3, commands.BucketType.guild)
+    async def iq(self, ctx, member : discord.Member):
+            random.randint(0, 100)
+
+            embed = discord.Embed(title="**IQ Calcutor 3300 🧠**",
+                                description=f"{member.mention} has an iq of **{random.randint(0, 85)}%**",
+                                colour=discord.Color.blue(),
+                                timestamp=datetime.utcnow())
+
+            await ctx.send(embed=embed)
+
+
+
+    @iq.error
+    async def iq_error(self, ctx, error):
+            if isinstance(error, commands.MissingRequiredArgument):
+                userembed=discord.Embed(title="__**Q Calcutor 3300 🧠**__", color=0xffffff)
+                userembed.add_field(name="  **Please input a user!**", value="---🧠---", inline=False)
+                await ctx.send(embed=userembed)
+
+
+            if isinstance(error, commands.CommandOnCooldown):
+                msg = '``This command is on cooldown, please try again in {:.2f}s``'.format(error.retry_after)
+                await ctx.send(msg)
+            else:
+                raise error    
+                
+
+
+
 
 
 
