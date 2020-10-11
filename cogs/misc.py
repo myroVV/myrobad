@@ -45,7 +45,8 @@ class Misc(commands.Cog):
                 ctx.guild.default_role: discord.PermissionOverwrite(send_messages=False)
                 }
                 await channel.edit(overwrites=overwrites)
-                await ctx.send(f"He bloqueado el canal {channel.name} para el rol @everyone.")
+                embed = discord.Embed(title="Channel locked", description="⛓️", color=0x6da860)
+                await ctx.send(embed=embed)
             elif channel.overwrites[ctx.guild.default_role].send_messages == True or channel.overwrites[ctx.guild.default_role].send_messages == None:
                 overwrites = channel.overwrites[ctx.guild.default_role]
                 overwrites.send_messages = False
