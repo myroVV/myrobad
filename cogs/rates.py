@@ -150,7 +150,7 @@ class Rates(commands.Cog):
             random.randint(0, 100)
 
             embed = discord.Embed(title="**Pot Accuracy Calculator 7200🧪**",
-                                description=f"{member.mention} has a **{random.randint(0, 100)}% pot accuracy**",
+                                description=f"{member.mention} has a pot accuracy of **{random.randint(0, 100)}%**",
                                 colour=discord.Color.blue(),
                                 timestamp=datetime.utcnow())
 
