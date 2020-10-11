@@ -7,6 +7,11 @@ class ModCog(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
 
+    @commands.Cog.listener()
+    async def on_ready(self):
+        print("Mod Cog has been loaded\n-----")
+
+
 
     @commands.command(help="Ban a user.")
     @commands.has_permissions(ban_members=True)
