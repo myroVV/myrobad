@@ -248,6 +248,14 @@ async def _8ball(ctx, *, question):
                  'Not at all bro']
     await ctx.send(f'``Question:`` **{question}**\n``Answer``: **{random.choice(responces)}**')
 
+@_8ball.error
+async def _8ball_error(ctx, error):
+    if isinstance(error, commands.CommandOnCooldown):
+        msg = 'This command is on cooldown, please try again in {:.2f}s'.format(error.retry_after)
+        await ctx.send(msg)
+    else:
+        raise error
+
 
 @commands.command()
 async def fact(ctx, self):
