@@ -220,7 +220,7 @@ async def pp(ctx, member: discord.Member):
                 '8==============================D 30 inches 😵',
                 '8===============================D 31 inches 😵😵',
                 '8========================================D 40 inches!??!?!?!?! 😵😵']
-    await ctx.send(f"{member.mention} = ``{random.choice(sizes)}``")
+    await ctx.send(f"{member.mention} : ``{random.choice(sizes)}``")
 
 
 @pp.error
@@ -245,8 +245,7 @@ async def _8ball(ctx, *, question):
                  'Maybe',
                  'Green',
                  'Not at all bro']
-    await ctx.send(f'``Question: {question}``\n``Answer``: {random.choice(responces)}')
-
+    await ctx.send(f'``Question:`` **{question}**\n``Answer``: **{random.choice(responces)}**')
 
 
 @commands.command()
