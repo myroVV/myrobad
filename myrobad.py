@@ -92,7 +92,7 @@ async def ban(ctx, member:discord.Member, *, reason=None):
 async def ban_error(ctx,error):
     if isinstance(error, commands.MissingPermissions):
         userembed=discord.Embed(title="__**Missing Permissions**__", color=0xffffff)
-        userembed.add_field(name="  **Usage - You are missing missions permissions to ban users**", value="`:(`", inline=False)
+        userembed.add_field(name="  **You are missing missions permissions to ban users**", value="`:(`", inline=False)
         await ctx.send(embed=userembed)
 
     if isinstance(error, commands.MissingRequiredArgument):
@@ -107,7 +107,7 @@ async def ban_error(ctx,error):
 async def kick_error(ctx,error):
     if isinstance(error, commands.MissingPermissions):
         userembed=discord.Embed(title="__**Missing Permissions**__", color=0xffffff)
-        userembed.add_field(name="  **Usage - You are missing missions permissions to kick users**", value="`:(`", inline=False)
+        userembed.add_field(name="  **You are missing missions permissions to kick users**", value="`:(`", inline=False)
         await ctx.send(embed=userembed)
 
     if isinstance(error, commands.MissingRequiredArgument):
@@ -123,7 +123,7 @@ async def kick_error(ctx,error):
 async def clear_error(ctx,error):
     if isinstance(error, commands.MissingPermissions):
         userembed=discord.Embed(title="__**Missing Permissions**__", color=0xffffff)
-        userembed.add_field(name="  **Usage - You are missing missions permissions to purge messages**", value="`:(`", inline=False)
+        userembed.add_field(name="  **You are missing missions permissions to purge messages**", value="`:(`", inline=False)
         await ctx.send(embed=userembed)
 
     if isinstance(error, commands.MissingRequiredArgument):
@@ -240,17 +240,15 @@ async def pp(ctx, member: discord.Member):
     await ctx.send(f"{member.mention} : ``{random.choice(sizes)}``")
 
 
-@pp.error
-async def pp_error(ctx, error):
-            if isinstance(error, commands.MissingRequiredArgument):
-                userembed=discord.Embed(title="__**PP CALCULATOR 3900**__", color=0xffffff)
-                userembed.add_field(name="  ``Usage - .pp <user>``", value="`🍆🍆🍆🍆`", inline=False)
-                await ctx.send(embed=userembed)
-
-
 
 @pp.error
 async def peepee_error(ctx, error):
+    if isinstance(error, commands.MissingRequiredArgument):
+        userembed=discord.Embed(title="__***PP CALCULATOR 69000***__", color=0xffffff)
+        userembed.add_field(name="  **Usage - .pp (User)**", value="*🍆 🍆 🍆*", inline=False)
+        await ctx.send(embed=userembed)
+
+        
     if isinstance(error, commands.CommandOnCooldown):
         msg = '``This command is on cooldown, please try again in {:.2f}s``'.format(error.retry_after)
         await ctx.send(msg)
