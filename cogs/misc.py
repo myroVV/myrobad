@@ -1,7 +1,6 @@
 import discord
 from discord.ext import commands
 import asyncio
-import requests
 from aiohttp import ClientSession
 
 class Misc(commands.Cog):
@@ -32,8 +31,8 @@ class Misc(commands.Cog):
                 embed.add_field(name='**Fun Fact**', value=fact, inline=False)
 
 
-    @client.command()
-    async def whois (ctx):
+    @commands.command()
+    async def whois (self, ctx):
 
         list = ''
         for role in ctx.author.roles:
