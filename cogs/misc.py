@@ -33,7 +33,5 @@ class Misc(commands.Cog):
         await ctx.send(embed=embed)
 
 
-
-
 def setup(client):
     client.add_cog(Misc(client))

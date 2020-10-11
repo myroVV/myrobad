@@ -2,6 +2,7 @@ from discord.ext import commands
 from aiohttp import ClientSession
 import discord
 import random
+from datetime import date, datetime, timedelta
 
 class Fun(commands.Cog):
     """
@@ -64,6 +65,21 @@ class Fun(commands.Cog):
 
                     embed.add_field(name='***Fun Fact***', value=fact, inline=False)
                     await ctx.send(embed=embed)
+
+
+
+
+    @commands.command()
+    async def gayrate(self, ctx, member : discord.Member):
+        random.randint(0, 100)
+
+        embed = discord.Embed(title="**Gay Meter :rainbow_flag:**",
+                            description=f"``{ctx.author} is {random.randint(0, 100)}% gay!``",
+                            colour=discord.Color.blue(),
+                            timestamp=datetime.utcnow())
+
+        await ctx.send(embed=embed)
+
 
 
 
