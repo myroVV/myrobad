@@ -91,14 +91,17 @@ async def ban(ctx, member:discord.Member, *, reason=None):
 @ban.error
 async def ban_error(ctx,error):
     if isinstance(error, commands.MissingPermissions):
-        await ctx.send(f'{ctx.author.mention} ``You do not have the permission to ban someone!``')
+        userembed=discord.Embed(title="__**Missing Permissions**__", color=0xffffff)
+        userembed.add_field(name="  ``Usage - You are missing missions permissions to ban users``", value="`:(`", inline=False)
+        await ctx.send(embed=userembed)
 
     if isinstance(error, commands.MissingRequiredArgument):
-        await ctx.send(f"{ctx.author.mention} ``Please specify a user!``")
+        userembed=discord.Embed(title="__**Ban**__", color=0xffffff)
+        userembed.add_field(name="  ``Usage - .ban (User)``", value="`Bans a user`", inline=False)
+        await ctx.send(embed=userembed)
 
     else:
         raise(error)
-
 
 @kick.error
 async def kick_error(ctx,error):
