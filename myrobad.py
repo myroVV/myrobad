@@ -92,12 +92,12 @@ async def ban(ctx, member:discord.Member, *, reason=None):
 async def ban_error(ctx,error):
     if isinstance(error, commands.MissingPermissions):
         userembed=discord.Embed(title="__**Missing Permissions**__", color=0xffffff)
-        userembed.add_field(name="  ``Usage - You are missing missions permissions to ban users``", value="`:(`", inline=False)
+        userembed.add_field(name="  **Usage - You are missing missions permissions to ban users**", value="`:(`", inline=False)
         await ctx.send(embed=userembed)
 
     if isinstance(error, commands.MissingRequiredArgument):
         userembed=discord.Embed(title="__**Ban**__", color=0xffffff)
-        userembed.add_field(name="  ``Usage - .ban (User)``", value="`Bans a user`", inline=False)
+        userembed.add_field(name="  **Usage - .ban (User)**", value="*Bans a user*", inline=False)
         await ctx.send(embed=userembed)
 
     else:
@@ -106,20 +106,34 @@ async def ban_error(ctx,error):
 @kick.error
 async def kick_error(ctx,error):
     if isinstance(error, commands.MissingPermissions):
-        await ctx.send(f'{ctx.author.mention} ``You do not have the permission to kick someone!``')
+        userembed=discord.Embed(title="__**Missing Permissions**__", color=0xffffff)
+        userembed.add_field(name="  **Usage - You are missing missions permissions to kick users**", value="`:(`", inline=False)
+        await ctx.send(embed=userembed)
 
     if isinstance(error, commands.MissingRequiredArgument):
-        await ctx.send(f"{ctx.author.mention} ``Please specify a user!``")
+        userembed=discord.Embed(title="__**Ban**__", color=0xffffff)
+        userembed.add_field(name="  **Usage - .Kick (User)**", value="*Kicks a user*", inline=False)
+        await ctx.send(embed=userembed)
 
     else:
         raise(error)
 
 
-
 @clear.error
-async def clear_error(ctx, error):
+async def clear_error(ctx,error):
     if isinstance(error, commands.MissingPermissions):
-        await ctx.channel.send("``You don't have permission to access this command!``")  
+        userembed=discord.Embed(title="__**Missing Permissions**__", color=0xffffff)
+        userembed.add_field(name="  **Usage - You are missing missions permissions to purge messages**", value="`:(`", inline=False)
+        await ctx.send(embed=userembed)
+
+    if isinstance(error, commands.MissingRequiredArgument):
+        userembed=discord.Embed(title="__**Ban**__", color=0xffffff)
+        userembed.add_field(name="  **Usage - .clear (x)**", value="*Purges chat by the given amount*", inline=False)
+        await ctx.send(embed=userembed)
+
+    else:
+        raise(error)
+
 
 
 
