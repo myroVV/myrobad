@@ -20,27 +20,15 @@ class Misc(commands.Cog):
 
 
     @commands.command()
-    async def insta(self, ctx, username):
-        url = f'https://apis.duncte123.me/insta/{username}'
+    async def fact(self, ctx):
+        url = f'https://uselessfacts.jsph.pl/random.json?language=en'
         async with ClientSession() as session:
             async with session.get(url) as response:
                 r = await response.json()
-                data = r['user']
-                username = data["username"]
-                followers = data["followers"]["count"]
-                following = data["following"]["count"]
-                uploads = data["uploads"]["count"]
-                biography = data["biography"]
-                private = data["is_private"]
-                verified = data["is_verified"]
+                fact = r['text']
+                embed = discord.Embed(title=f'***Random Fact***', colour=ctx.author.colour, timestamp=ctx.message.created_at)
 
-                embed = discord.Embed(title=f'Insta Details: {username}')
-                embed.add_field(name='`Bio`', value=biography + '\u200b', inline=False)
-                embed.add_field(name='`Private Status`', value=private, inline=False)
-                embed.add_field(name='`Verified Status`', value=verified, inline=False)
-                embed.add_field(name='`Followers`', value=followers, inline=False)
-                embed.add_field(name='`Following`', value=following, inline=False)
-                embed.add_field(name='`Posts`', value=uploads, inline=False)
+                embed.add_field(name='**Fun Fact**', value=fact, inline=False)
                 await ctx.send(embed=embed)
 
 
