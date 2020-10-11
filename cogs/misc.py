@@ -1,5 +1,7 @@
 import discord
 from discord.ext import commands
+import asyncio
+from aiohttp import ClientSession
 
 class Misc(commands.Cog):
     """
@@ -18,31 +20,28 @@ class Misc(commands.Cog):
 
 
     @commands.command()
-    async def serverinfo(self, ctx):
-            """Shows server info"""
+    async def insta(self, ctx, username):
+        url = f'https://apis.duncte123.me/insta/{username}'
+        async with ClientSession() as session:
+            async with session.get(url) as response:
+                r = await response.json()
+                data = r['user']
+                username = data["username"]
+                followers = data["followers"]["count"]
+                following = data["following"]["count"]
+                uploads = data["uploads"]["count"]
+                biography = data["biography"]
+                private = data["is_private"]
+                verified = data["is_verified"]
 
-            server = ctx.message.server
-
-            roles = str(len(server.roles))
-            emojis = str(len(server.emojis))
-            channels = str(len(server.channels))
-
-            embeded = discord.Embed(title=server.name, description='Server Info', color=0xEE8700)
-            embeded.set_thumbnail(url=server.icon_url)
-            embeded.add_field(name="Created on:", value=server.created_at.strftime('%d %B %Y at %H:%M UTC+3'), inline=False)
-            embeded.add_field(name="Server ID:", value=server.id, inline=False)
-            embeded.add_field(name="Users on server:", value=server.member_count, inline=True)
-            embeded.add_field(name="Server owner:", value=server.owner, inline=True)
-
-            embeded.add_field(name="Default Channel:", value=server.default_channel, inline=True)
-            embeded.add_field(name="Server Region:", value=server.region, inline=True)
-            embeded.add_field(name="Verification Level:", value=server.verification_level, inline=True)
-
-            embeded.add_field(name="Role Count:", value=roles, inline=True)
-            embeded.add_field(name="Emoji Count:", value=emojis, inline=True)
-            embeded.add_field(name="Channel Count:", value=channels, inline=True)
-
-            await self.client.say(embed=embeded)
+                embed = discord.Embed(title=f'Insta Details: {username}')
+                embed.add_field(name='`Bio`', value=biography + '\u200b', inline=False)
+                embed.add_field(name='`Private Status`', value=private, inline=False)
+                embed.add_field(name='`Verified Status`', value=verified, inline=False)
+                embed.add_field(name='`Followers`', value=followers, inline=False)
+                embed.add_field(name='`Following`', value=following, inline=False)
+                embed.add_field(name='`Posts`', value=uploads, inline=False)
+                await ctx.send(embed=embed)
 
 
 def setup(client):
