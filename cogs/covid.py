@@ -248,6 +248,5 @@ class Covid(commands.Cog):
 
 
 
-
 def setup(client):
     client.add_cog(Covid(client))
