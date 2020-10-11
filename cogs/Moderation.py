@@ -1,14 +1,23 @@
 
 #•----------Modules-----------•#
+
 import discord
+
 from discord.ext.commands import Greedy, command, BucketType, guild_only, cooldown, \
 has_permissions, bot_has_permissions, Cog, is_owner, Converter
+
 import asyncio
+
 from asyncio import sleep
+
 import datetime
+
 from datetime import timedelta, datetime
+
 from typing import Optional
+
 import re
+
 from discord.ext.commands import BadArgument
 
 #•----------Other Variables-----------•#
@@ -260,7 +269,7 @@ class Moderation(Cog, name="Moderation Category"):
         if len(warn_list) < 1:
                     err = discord.Embed(
                         color=0x420000, 
-                        description=f"{redmark} __*{member.mention} has no warns to display*__")
+                        description=f"*{member.mention} has no warns to display*__")
                     await ctx.send(embed=err)
                     return
         else:
@@ -302,7 +311,7 @@ class Moderation(Cog, name="Moderation Category"):
 
                 #Define fields as the list of fields
                 #We have up above
-                fields = wfields
+                wfields = wfields
 
                 #Add the fields
                 for n, v, i in wfields:
@@ -394,9 +403,11 @@ class Moderation(Cog, name="Moderation Category"):
             await ctx.send("You must give the number of the **Warn Case** to delete\nExample: `!delwarn <@user <2>`")
             return
 
-        #If the member has no warns
+        #If the membe
+        # r has no warns
         if len(get_warns) == 0:
           
+    
             e = discord.Embed(
                 description=f"<:redmark:738415723172462723> __*{member.mention} doesn't have any warns to delete*__")
                 
@@ -643,7 +654,7 @@ class Moderation(Cog, name="Moderation Category"):
             
             else:
                 e = discord.Embed(
-                    description=f"(){mem.mention} hasn't been muted*__", 
+                    description=f"{mem.mention} hasn't been muted*__", 
                     color=0x420000)
                 return await ctx.send(embed=e)
     
