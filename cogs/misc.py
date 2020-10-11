@@ -49,14 +49,14 @@ class Misc(commands.Cog):
             elif channel.overwrites[ctx.guild.default_role].send_messages == True or channel.overwrites[ctx.guild.default_role].send_messages == None:
                 overwrites = channel.overwrites[ctx.guild.default_role]
                 overwrites.send_messages = False
-                await channel.set_permissions(ctx.guild.default_role, overwrite=overwrites)
-                await ctx.send(f"He bloqueado el canal {channel.name} para el rol @everyone.")
+                embed = discord.Embed(title="Channel locked", description="⛓️", color=0x6da860)
+                await ctx.send(embed=embed)
             else:
                 overwrites = channel.overwrites[ctx.guild.default_role]
                 overwrites.send_messages = True
                 await channel.set_permissions(ctx.guild.default_role, overwrite=overwrites)
-                await ctx.send(f"He desbloqueado el canal {channel.name} para el rol @everyone.")
-
+                embed = discord.Embed(title="Channel unlocked", description="⛓️", color=0x6da860)
+                await ctx.send(embed=embed)
 
 
 
