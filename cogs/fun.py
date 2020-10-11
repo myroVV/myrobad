@@ -78,7 +78,7 @@ class Fun(commands.Cog):
         random.randint(0, 100)
 
         embed = discord.Embed(title="**Gay Meter 69420 :rainbow_flag:**",
-                            description=f"``{member.mention} is {random.randint(0, 100)}% gay!``",
+                            description=f"{member.mention} ``is {random.randint(0, 100)}% gay!``",
                             colour=discord.Color.blue(),
                             timestamp=datetime.utcnow())
 
@@ -87,7 +87,7 @@ class Fun(commands.Cog):
     @gay.error
     async def gay_error(self, ctx, error):
         if isinstance(error, commands.MissingRequiredArgument):
-            userembed=discord.Embed(title="__**Gay Meter 69420 :rainbow_flag:**__", color=0xffffff)
+            userembed=discord.Embed(title="__**Gay Meter 69420**__", color=0xffffff)
             userembed.add_field(name="  **Please input a user!**", value=":rainbow_flag: :rainbow_flag: :rainbow_flag: :rainbow_flag:", inline=False)
             await ctx.send(embed=userembed)
 
