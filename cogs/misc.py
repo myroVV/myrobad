@@ -19,17 +19,6 @@ class Misc(commands.Cog):
 
 
 
-    @commands.command()
-    async def fact(self, ctx):
-        url = f'https://uselessfacts.jsph.pl/random.json?language=en'
-        async with ClientSession() as session:
-            async with session.get(url) as response:
-                r = await response.json()
-                fact = r['text']
-                embed = discord.Embed(title=f'***Random Fact***', colour=ctx.author.colour, timestamp=ctx.message.created_at)
-
-                embed.add_field(name='**Fun Fact**', value=fact, inline=False)
-
 
 
 
